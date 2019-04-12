@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 // TODO: Need prop-types to handle proper props validation
+import styled from 'styled-components';
 import Character from './characterModel';
 import characterData from '../../data/characters.json';
 import Pathfinder from './pathfinderModel';
 import pathfinderData from '../../data/pathfinder.json';
+
+import Section from './shared/Section';
+import Strength from './sections/Strength';
+import Saves from './sections/Saves';
 
 const Game = new Pathfinder(pathfinderData);
 
@@ -26,68 +31,88 @@ class CharacterLayout extends Component {
     const classDescription = C.classLevels(1).join(' ');
     const carryCapacity = Game.canCarry(C.abilityScore('str'));
     const size = Game.creatureSizes[C.baseSize];
+    const saves = {
+      fort: modFormat(C.saveBonus('fort')),
+      reflex: modFormat(C.saveBonus('reflex')),
+      will: modFormat(C.saveBonus('will')),
+    };
+
+    const StyledPage = styled.div(({ theme }) => {
+      const { spacing } = theme;
+      return `
+        display: grid;
+        grid-gap: ${spacing[2] || 0};
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        padding: ${spacing[1] || 0};
+      `;
+    });
 
     return (
-      <>
-        <div>
-          <h2>{C.name}</h2>
-        </div>
-        <div>{`HD: ${C.hd()} [${classDescription}]`}</div>
-        <div>{`Alignment: ${C.alignment.lvc} ${C.alignment.gve}`}</div>
-        <div>{`Race: ${C.race.name}`}</div>
-        <div>{`Archetype: ${C.archetype}`}</div>
-        <div>
-          <table>
-            <tbody>
-              <tr>
-                <th colSpan="2">CARRY</th>
-              </tr>
-              <tr>
-                <td>{`<= ${carryCapacity[0]}`}</td>
-                <td>Light</td>
-              </tr>
-              <tr>
-                <td>{`${carryCapacity[0] + 1} - ${carryCapacity[1]}`}</td>
-                <td>Medium</td>
-              </tr>
-              <tr>
-                <td>{`${carryCapacity[1] + 1} - ${carryCapacity[2]}`}</td>
-                <td>Heavy</td>
-              </tr>
-            </tbody>
-          </table>
-          <table>
-            <tbody>
-              <tr>
-                <th colSpan="2">LIFT</th>
-              </tr>
-              <tr>
-                <td>{carryCapacity[2]}</td>
-                <td>Overhead</td>
-              </tr>
-              <tr>
-                <td>{carryCapacity[2] * 2}</td>
-                <td>Off Ground</td>
-              </tr>
-              <tr>
-                <td>{carryCapacity[2] * 5}</td>
-                <td>Push/Drag</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div>
-          <strong>XP</strong>
-          {` ${C.totalXp()}`}
-        </div>
-        <div>
-          <strong>GP</strong>
-          {` ${C.totalGp()}`}
-        </div>
-
-        <div>{JSON.stringify(C.conditions)}</div>
-
-        <div>
+      <StyledPage>
+        <Section noHeader>
+          <div>
+            <h2>{C.name}</h2>
+          </div>
+          <div>{`HD: ${C.hd()} [${classDescription}]`}</div>
+          <div>{`Alignment: ${C.alignment.lvc} ${C.alignment.gve}`}</div>
+          <div>{`Race: ${C.race.name}`}</div>
+          <div>{`Archetype: ${C.archetype}`}</div>
+          <div>
+            <strong>XP</strong>
+            {` ${C.totalXp().toLocaleString()}`}
+          </div>
+          <div>
+            <strong>GP</strong>
+            {` ${C.totalGp().toLocaleString()}`}
+          </div>
+        </Section>
+        <Section color={['red', 5]} title="Combat" titleColor={['gray', 0]}>
+          <div>
+            <strong>Max HP</strong>
+            {` ${C.maxHp}`}
+          </div>
+          <div>
+            <strong>CMB</strong>
+            {` ${C.cmb()}`}
+          </div>
+          <div>
+            <strong>CMD</strong>
+            {` ${C.cmd()}`}
+          </div>
+          <div>
+            <strong>Touch AC</strong>
+            {` ${C.touchAc()}`}
+          </div>
+          <div>
+            <strong>Flat-Footed AC</strong>
+            {` ${C.flatFootedAc()}`}
+          </div>
+          <div>
+            <strong>AC</strong>
+            {` ${C.ac()}`}
+          </div>
+          <div>
+            <strong>Size</strong>
+            {` ${size.name} (${modFormat(size.sizeModifier)})`}
+            <br />
+            {`Space: ${size.space}  Reach: ${size.naturalReach}`}
+          </div>
+          <div>
+            <strong>BAB</strong>
+            {` +${C.bab.join(' / +')}`}
+          </div>
+          <div>
+            <strong>Initiative</strong>
+            {` ${modFormat(C.initiative())}`}
+          </div>
+        </Section>
+        <Section color={['fuschia', 7]} title="Strength" titleColor={['gray', 0]}>
+          <Strength carryCapacity={carryCapacity} />
+        </Section>
+        <Section color={['yellow', 7]} title="Conditions" titleColor={['gray', 0]}>
+          <pre>{JSON.stringify(C.conditions, ' ', 2)}</pre>
+        </Section>
+        <Section color={['cyan', 7]} title="Abilities" titleColor={['gray', 0]}>
           <table style={{ textAlign: 'center' }}>
             <tbody>
               <tr>
@@ -112,56 +137,11 @@ class CharacterLayout extends Component {
               ))}
             </tbody>
           </table>
-        </div>
-        <div>
-          <strong>Saves</strong>
-          {['fort', 'reflex', 'will'].map(s => (
-            <div key={s}>{`${s} (${Game.saveBonus(s).abilityKey}) - ${C.saveBonus(s)}`}</div>
-          ))}
-        </div>
-        <div>
-          <strong>BAB</strong>
-          {` +${C.bab.join(' / +')}`}
-        </div>
-        <div>
-          <strong>Initiative</strong>
-          {` ${modFormat(C.initiative())}`}
-        </div>
-        <div>
-          <strong>Size</strong>
-          {` ${size.name} (${modFormat(size.sizeModifier)})`}
-          <br />
-          {`Space: ${size.space}  Reach: ${size.naturalReach}`}
-        </div>
-        <div>
-          <strong>Max HP</strong>
-          {` ${C.maxHp}`}
-        </div>
-        <div>
-          <strong>CMB</strong>
-          {` ${C.cmb()}`}
-        </div>
-        <div>
-          <strong>CMD</strong>
-          {` ${C.cmd()}`}
-        </div>
-        <div>
-          <strong>Armor Bonus</strong>
-          {` ${C.getBonusTotalByKeyAndType('ac', 'armor')}`}
-        </div>
-        <div>
-          <strong>Touch AC</strong>
-          {` ${C.touchAc()}`}
-        </div>
-        <div>
-          <strong>Flat-Footed AC</strong>
-          {` ${C.flatFootedAc()}`}
-        </div>
-        <div>
-          <strong>AC</strong>
-          {` ${C.ac()}`}
-        </div>
-        <div>
+        </Section>
+        <Section color={['green', 6]} title="Saves" titleColor={['gray', 0]}>
+          <Saves saves={saves} />
+        </Section>
+        <Section color={['blue', 7]} title="Skills" titleColor={['gray', 0]} colSpan="2">
           <table>
             <tbody>
               <tr>
@@ -185,8 +165,13 @@ class CharacterLayout extends Component {
               ))}
             </tbody>
           </table>
-        </div>
-      </>
+        </Section>
+        <Section color={['pink', 6]} title="Gear" titleColor={['gray', 0]}>
+          {C.items.map(({ name }) => (
+            <div key={name}>{name}</div>
+          ))}
+        </Section>
+      </StyledPage>
     );
   }
 }
