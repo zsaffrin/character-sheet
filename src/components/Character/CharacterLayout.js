@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// TODO: Need prop-types to handle proper props validation
 import styled from 'styled-components';
 import Character from './characterModel';
 import characterData from '../../data/characters.json';
@@ -9,6 +8,7 @@ import pathfinderData from '../../data/pathfinder.json';
 import Section from './shared/Section';
 import Strength from './sections/Strength';
 import Saves from './sections/Saves';
+import ConditionSection from './sections/ConditionsSection';
 
 const Game = new Pathfinder(pathfinderData);
 
@@ -22,7 +22,17 @@ class CharacterLayout extends Component {
     const char = characterData.find(c => c.id === cid);
     this.state = {
       character: new Character(char, Game),
+      conditions: Object.assign(char.conditions),
     };
+  }
+
+  toggleCondition(condition) {
+    const { conditions } = this.state;
+    const newConditions = Object.assign(conditions, {});
+    newConditions[condition] = !newConditions[condition];
+    this.setState({
+      conditions: newConditions,
+    });
   }
 
   render() {
@@ -110,7 +120,7 @@ class CharacterLayout extends Component {
           <Strength carryCapacity={carryCapacity} />
         </Section>
         <Section color={['yellow', 7]} title="Conditions" titleColor={['gray', 0]}>
-          <pre>{JSON.stringify(C.conditions, ' ', 2)}</pre>
+          <ConditionSection conditions={C.conditions} toggleCondition={this.toggleCondition} />
         </Section>
         <Section color={['cyan', 7]} title="Abilities" titleColor={['gray', 0]}>
           <table style={{ textAlign: 'center' }}>
