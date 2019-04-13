@@ -5,7 +5,8 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from '../Header/Header';
 
 import CharacterList from '../CharacterList/CharacterList';
-import CharacterLayout from '../Character/CharacterLayout';
+import Character from '../Character/Character';
+import CharacterLayout from '../CharacterOld/CharacterLayout';
 import characterSheetTheme from '../../themes/characterSheetTheme';
 
 const GlobalStyle = createGlobalStyle`
@@ -39,7 +40,8 @@ const App = () => (
       <AppStyle>
         <Header />
         <Router>
-          <CharacterLayout path="/character/:cid" />
+          <Character path="/character/:cid" />
+          <CharacterLayout path="/characterold/:cid" />
           <CharacterList default />
         </Router>
       </AppStyle>
