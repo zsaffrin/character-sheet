@@ -19,6 +19,12 @@ class Character extends Component {
     this.state = {
       character: char,
       game: pathfinderData,
+      conditions: {
+        mutagen: false,
+        beastForm: false,
+        beastFormFeature: 0, // (0) 2 claws (1) Darkvision 60ft (2) +1 racial nat armor
+        flatFooted: false,
+      },
     };
   }
 
@@ -57,10 +63,10 @@ class Character extends Component {
   }
 
   getAllBonusesByKey(key) {
-    const { character } = this.state;
+    const { conditions } = this.state;
     return this.getAllBonuses().filter((bonus) => {
       if (bonus.key !== key) return false;
-      if (bonus.condition && !character.conditions[bonus.condition]) return false;
+      if (bonus.condition && !conditions[bonus.condition]) return false;
       return true;
     });
   }
@@ -118,11 +124,14 @@ class Character extends Component {
       });
   }
 
-  toggleCondition(condition) {
+  toggleCondition = (key) => {
     const { conditions } = this.state;
-    conditions[condition] = !conditions[condition];
-    this.setState({ conditions });
-  }
+    const newConditions = Object.assign(conditions, {});
+    newConditions[key] = !newConditions[key];
+    this.setState({
+      conditions: newConditions,
+    });
+  };
 
   abilityScore(key) {
     const { character } = this.state;
@@ -239,7 +248,7 @@ class Character extends Component {
   }
 
   render() {
-    const { character: C, game } = this.state;
+    const { character: C, conditions, game } = this.state;
 
     const classDescription = this.classLevels().map(i => `${i.name} ${i.level}`);
     const size = game.creatureSizes[C.baseSize];
@@ -322,7 +331,7 @@ class Character extends Component {
           <StrengthSection carryCapacity={this.canCarry()} />
         </Section>
         <Section color={['yellow', 7]} title="Conditions" titleColor={['gray', 0]}>
-          <ConditionsSection conditions={C.conditions} toggleCondition={this.toggleCondition} />
+          <ConditionsSection conditions={conditions} toggleCondition={this.toggleCondition} />
         </Section>
         <Section color={['cyan', 7]} title="Abilities" titleColor={['gray', 0]}>
           <table style={{ textAlign: 'center' }}>

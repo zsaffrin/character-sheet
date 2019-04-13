@@ -36,6 +36,8 @@ class Character {
       will: 4,
     };
     this.bab = data.bab || [0];
+
+    this.toggleCondition = this.toggleCondition.bind(this);
   }
 
   conditions = {
