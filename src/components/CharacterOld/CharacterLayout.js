@@ -22,18 +22,13 @@ class CharacterLayout extends Component {
     const char = characterData.find(c => c.id === cid);
     this.state = {
       character: new Character(char, Game),
-      conditions: Object.assign(char.conditions),
     };
   }
 
-  toggleCondition(condition) {
-    const { conditions } = this.state;
-    const newConditions = Object.assign(conditions, {});
-    newConditions[condition] = !newConditions[condition];
-    this.setState({
-      conditions: newConditions,
-    });
-  }
+  toggleCondition = (condition) => {
+    const { character } = this.state;
+    return character.toggleCondition(condition);
+  };
 
   render() {
     const { character: C } = this.state;
