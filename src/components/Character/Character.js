@@ -268,6 +268,20 @@ class Character extends Component {
       `;
     });
 
+    const SkillsTable = styled.div`
+      display: grid;
+      grid-template-columns: repeat(6, auto);
+      text-align: center;
+    `;
+    const SkillsTableHeader = styled.td`
+      font-size: 0.8em;
+      text-transform: uppercase;
+    `;
+
+    const Heavy = styled.span`
+      font-weight: 900;
+    `;
+
     return (
       <StyledPage>
         <Section noHeader>
@@ -363,29 +377,21 @@ class Character extends Component {
           <SavesSection saves={saves} />
         </Section>
         <Section color={['blue', 7]} title="Skills" titleColor={['gray', 0]} colSpan="2">
-          <table>
-            <tbody>
-              <tr>
-                <td>Skill</td>
-                <td>Abil</td>
-                <td>Mod</td>
-                <td>Ranks</td>
-                <td>Class</td>
-                <td />
-                <td>TOTAL</td>
-              </tr>
-              {game.skills.map(({ key, name, abilityKey }) => (
-                <tr key={key}>
-                  <td>{name}</td>
-                  <td>{abilityKey.toUpperCase()}</td>
-                  <td>{modFormat(this.abilityMod(abilityKey))}</td>
-                  <td>{C.skillRanks[key] ? C.skillRanks[key] : ''}</td>
-                  <td>{this.isClassSkill(key) ? 'Y' : ''}</td>
-                  <td>{this.skillBonus(key)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <SkillsTable>
+            {['Skill', 'Abil', 'Mod', 'Ranks', 'Class', 'Total'].map(i => (
+              <SkillsTableHeader key={i}>{i}</SkillsTableHeader>
+            ))}
+            {game.skills.map(({ key, name, abilityKey }) => (
+              <>
+                <div>{name}</div>
+                <div>{abilityKey.toUpperCase()}</div>
+                <div>{modFormat(this.abilityMod(abilityKey))}</div>
+                <div>{C.skillRanks[key] ? C.skillRanks[key] : ''}</div>
+                <div>{this.isClassSkill(key) ? 'Y' : ''}</div>
+                <div>{this.skillBonus(key)}</div>
+              </>
+            ))}
+          </SkillsTable>
         </Section>
         <Section color={['pink', 6]} title="Gear" titleColor={['gray', 0]}>
           {C.items.map(({ name }) => (
