@@ -10,10 +10,6 @@ import CharacterLayout from '../CharacterOld/CharacterLayout';
 import characterSheetTheme from '../../themes/characterSheetTheme';
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Lato', sans-serif;
-  }
-
   h1,
   h2,
   h3,
@@ -29,6 +25,7 @@ const AppStyle = styled.div(({ theme }) => {
 
   return `
     color: ${colors.black};
+    font-family: 'Lato', sans-serif;
     min-height: 100vh;
   `;
 });
