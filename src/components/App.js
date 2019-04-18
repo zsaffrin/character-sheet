@@ -2,12 +2,13 @@ import React from 'react';
 import { Router } from '@reach/router';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import Header from '../Header/Header';
+import Header from './Header';
+import HomePage from './pages/HomePage';
+import SelectionPage from './pages/SelectionPage';
 
-import CharacterList from '../CharacterList/CharacterList';
-import Character from '../Character/Character';
-import CharacterLayout from '../CharacterOld/CharacterLayout';
-import characterSheetTheme from '../../themes/characterSheetTheme';
+import games from '../data/games.json';
+import characters from '../data/characters.json';
+import characterSheetTheme from '../themes/characterSheetTheme';
 
 const GlobalStyle = createGlobalStyle`
   h1,
@@ -30,17 +31,27 @@ const AppStyle = styled.div(({ theme }) => {
   `;
 });
 
+const Page = styled.div(({ theme }) => {
+  const { spacing } = theme;
+
+  return `
+    padding: ${spacing[1]}
+  `;
+});
+
 const App = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={characterSheetTheme}>
       <AppStyle>
         <Header />
-        <Router>
-          <Character path="/character/:cid" />
-          <CharacterLayout path="/characterold/:cid" />
-          <CharacterList default />
-        </Router>
+        <Page>
+          <Router>
+            <SelectionPage data={games} path="/games" />
+            <SelectionPage data={characters} path="/characters" />
+            <HomePage default />
+          </Router>
+        </Page>
       </AppStyle>
     </ThemeProvider>
   </div>

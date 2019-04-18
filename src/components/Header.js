@@ -9,6 +9,10 @@ const Header = () => {
     return `
       background: ${colors.red[5]};
       color: ${colors.gray[0]};
+      display: grid;
+      grid-auto-columns: min-content;
+      grid-auto-flow: column;
+      grid-gap: ${spacing[2]};
       padding: ${spacing[1]};
 
       & a {
@@ -19,12 +23,18 @@ const Header = () => {
           background: ${colors.red[4]}
         }
       }
+
+      & > * {
+        white-space: nowrap;
+      }
     `;
   });
 
   return (
     <StyledHeader>
-      <Link to="/characters">Character List</Link>
+      <strong>CHARACTER-SHEET</strong>
+      <Link to="/characters">Characters</Link>
+      <Link to="/games">Games</Link>
     </StyledHeader>
   );
 };

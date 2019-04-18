@@ -1,6 +1,6 @@
 {
   "name": "character-sheet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "react": "^16.8.6",
