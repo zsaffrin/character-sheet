@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { arrayOf, shape, string } from 'prop-types';
 import { Link } from '@reach/router';
 
 const SelectionPage = ({ data, dataKey }) => (
@@ -14,7 +14,7 @@ const SelectionPage = ({ data, dataKey }) => (
   </div>
 );
 SelectionPage.propTypes = {
-  data: string.isRequired,
+  data: arrayOf(shape({})).isRequired,
   dataKey: string.isRequired,
 };
 
