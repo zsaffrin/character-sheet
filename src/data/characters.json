@@ -1,10 +1,42 @@
 [
   {
     "id": "1120945642",
-    "name": "First Guy"
+    "name": "Dr Robert Gray",
+    "gameKey": "pathfinder"
   },
   {
     "id": "917558184",
-    "name": "Another Guy"
+    "name": "Izzy Moon",
+    "gameKey": "expanse",
+    "abilities": {
+      "acc": 3,
+      "com": 1,
+      "con": 0,
+      "dex": 3,
+      "fig": 1,
+      "int": 3,
+      "per": 1,
+      "str": 1,
+      "wil": 2
+    },
+    "background": "urb",
+    "drives": ["reb"],
+    "focuses": ["tech"],
+    "incomeScore": 2,
+    "origin": "belt",
+    "profession": "tech",
+    "relationships": [
+      {
+        "name": "The Crew of the Sommelier",
+        "desc": "Once per game session, you can get as many SP as your Relationship rating to perform any stunt that would be in-character when it comes to helping other members of the crew of the Sommelier. You choose this after you see if you succeed on a test.",
+        "rating": 1
+      }
+    ],
+    "socialClass": "low",
+    "talents": [
+      { "key": "hack", "level": "novice" },
+      { "key": "improv", "level": "novice" },
+      { "key": "mis", "level": "novice" }
+    ]
   }
 ]
