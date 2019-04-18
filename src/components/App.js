@@ -5,6 +5,8 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
 import HomePage from './pages/HomePage';
 import SelectionPage from './pages/SelectionPage';
+import CharacterPage from './pages/Character/CharacterPage';
+import GamePage from './pages/GamePage';
 
 import games from '../data/games.json';
 import characters from '../data/characters.json';
@@ -47,8 +49,12 @@ const App = () => (
         <Header />
         <Page>
           <Router>
-            <SelectionPage data={games} path="/games" />
-            <SelectionPage data={characters} path="/characters" />
+            <SelectionPage data={games} dataKey="game" path="/games" />
+            <SelectionPage data={characters} dataKey="character" path="/characters" />
+
+            <CharacterPage path="/character/:id" />
+            <GamePage path="/game/:id" />
+
             <HomePage default />
           </Router>
         </Page>

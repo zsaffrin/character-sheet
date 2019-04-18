@@ -5,6 +5,9 @@ const HomePage = () => (
   <div>
     <ul>
       <li>
+        <Link to="/characters">Characters</Link>
+      </li>
+      <li>
         <Link to="/games">Games</Link>
       </li>
     </ul>
