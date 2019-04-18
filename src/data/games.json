@@ -38,6 +38,21 @@
       "trad": { "name": "Trade", "socialClass": "mid" },
       "urb": { "name": "Urban", "socialClass": "low" }
     },
+    "conditions": {
+      "blind": { "name": "Blinded" },
+      "deaf": { "name": "Deafened" },
+      "dying": { "name": "Dying" },
+      "exhaus": { "name": "Exhausted" },
+      "fatig": { "name": "Fatigued" },
+      "ff": { "name": "Free-Falling" },
+      "help": { "name": "Helpless" },
+      "hind": { "name": "Hindered" },
+      "inj": { "name": "Injured" },
+      "prone": { "name": "Prone" },
+      "restr": { "name": "Restrained" },
+      "uncon": { "name": "Unconscious" },
+      "wound": { "name": "Wounded" }
+    },
     "drives": {
       "ach": { "name": "Achiever" },
       "build": { "name": "Builder" },
