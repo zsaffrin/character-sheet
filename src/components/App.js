@@ -24,11 +24,11 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppStyle = styled.div(({ theme }) => {
-  const { colors } = theme;
+  const { fonts, colors } = theme;
 
   return `
-    color: ${colors.black};
-    font-family: 'Lato', sans-serif;
+    color: ${colors.blue[9]};
+    font-family: ${fonts.body};
     min-height: 100vh;
   `;
 });

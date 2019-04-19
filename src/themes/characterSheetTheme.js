@@ -159,6 +159,17 @@ const theme = {
       '#31021c',
     ],
   },
+  fonts: {
+    body: '"Lato", sans-serif',
+  },
+  fontWeights: {
+    body: {
+      light: 300,
+      regular: 400,
+      bold: 700,
+      black: 900,
+    },
+  },
   spacing: [0, '5px', '10px', '15px', '20px'],
 };
 
