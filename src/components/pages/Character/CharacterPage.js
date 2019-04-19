@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import ExpanseCharacter from './ExpanseCharacter';
+import ExpanseCharacter from './ExpanseCharacter/ExpanseCharacter';
 import DD5eCharacter from './DD5eCharacter';
 
 import characterData from '../../../data/characters.json';
