@@ -12,12 +12,14 @@ const AbilitiesSection = ({
       grid-gap: ${spacing[1]};
       list-style: none;
       padding: 0;
+      margin: 0;
     `;
   });
   const AbilityItem = styled.li(({ theme }) => {
     const { colors } = theme;
     return `
       border: 1px solid ${colors.blue[3]};
+      border-radius: 5px;
       display: grid;
       grid-template-columns: 1fr auto;
     `;
@@ -34,10 +36,10 @@ const AbilitiesSection = ({
   const AbilityScore = styled.div(({ theme }) => {
     const { colors, fontWeights, spacing } = theme;
     return `
-    background: ${colors.blue[7]};
-    color: ${colors.gray[0]};
-    font-weight: ${fontWeights.body.black};
-    padding: ${spacing[1]} ${spacing[2]};
+      background: ${colors.blue[7]};
+      color: ${colors.gray[0]};
+      font-weight: ${fontWeights.body.black};
+      padding: ${spacing[1]} ${spacing[2]};
     `;
   });
   const AbilityFocusList = styled.ul(({ theme }) => {
@@ -50,12 +52,26 @@ const AbilitiesSection = ({
     `;
   });
   const AbilityFocusItem = styled.li(({ theme }) => {
+    const { colors } = theme;
+    return `
+      border: 1px solid ${colors.gray[2]};
+      border-radius: 3px;
+      font-size: 0.9em;
+    `;
+  });
+  const AbilityFocusItemHeader = styled.div(({ theme }) => {
     const { colors, fontWeights, spacing } = theme;
     return `
       background: ${colors.gray[2]};
-      border-radius: ${spacing[1]};
-      font-size: 0.9em;
       font-weight: ${fontWeights.body.bold};
+      padding: 0 ${spacing[1]};
+    `;
+  });
+  const AbilityFocusItemContent = styled.div(({ theme }) => {
+    const { colors, spacing } = theme;
+    return `
+      color: ${colors.blue[4]};
+      font-size: 0.8em;  
       padding: ${spacing[1]};
     `;
   });
@@ -74,8 +90,11 @@ const AbilitiesSection = ({
               <AbilityScore>{score}</AbilityScore>
               {filteredFocuses.length > 0 && (
                 <AbilityFocusList>
-                  {filteredFocuses.map(({ name: fName }) => (
-                    <AbilityFocusItem key={fName}>{fName}</AbilityFocusItem>
+                  {filteredFocuses.map(({ name: fName, desc }) => (
+                    <AbilityFocusItem key={fName}>
+                      <AbilityFocusItemHeader>{fName}</AbilityFocusItemHeader>
+                      <AbilityFocusItemContent>{desc}</AbilityFocusItemContent>
+                    </AbilityFocusItem>
                   ))}
                 </AbilityFocusList>
               )}

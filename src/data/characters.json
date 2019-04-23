@@ -19,10 +19,20 @@
       "str": 1,
       "wil": 2
     },
+    "appearance": "",
     "background": "urb",
     "drives": ["reb"],
     "focuses": ["tech"],
     "incomeScore": 2,
+    "inventory": [
+      {
+        "key": "",
+        "category": "",
+        "weaponType": "",
+        "name": "",
+        "desc": ""
+      }
+    ],
     "origin": "belt",
     "profession": "tech",
     "relationships": [

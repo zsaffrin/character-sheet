@@ -42,7 +42,7 @@ const Page = styled.div(({ theme }) => {
 });
 
 const App = () => (
-  <div>
+  <>
     <GlobalStyle />
     <ThemeProvider theme={characterSheetTheme}>
       <AppStyle>
@@ -60,7 +60,7 @@ const App = () => (
         </Page>
       </AppStyle>
     </ThemeProvider>
-  </div>
+  </>
 );
 
 export default App;

@@ -1,32 +1,66 @@
 import React from 'react';
 import { shape, string } from 'prop-types';
+import styled from 'styled-components';
 
 const ProfileSection = ({
   origin, background, socialClass, profession, drive,
-}) => (
-  <div>
-    <div>
-      <strong>ORIGIN</strong>
-      {` ${origin.name}`}
-    </div>
-    <div>
-      <strong>BACKGROUND</strong>
-      {` ${background.name}`}
-    </div>
-    <div>
-      <strong>SOCIAL CLASS</strong>
-      {` ${socialClass.name}`}
-    </div>
-    <div>
-      <strong>PROFESSION</strong>
-      {` ${profession.name}`}
-    </div>
-    <div>
-      <strong>DRIVE</strong>
-      {` ${drive.name}`}
-    </div>
-  </div>
-);
+}) => {
+  const ProfileItemList = styled.ul(({ theme }) => {
+    const { spacing } = theme;
+    return `
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-gap: ${spacing[1]};
+    `;
+  });
+  const Item = styled.li(({ theme }) => {
+    const { spacing } = theme;
+    return `
+      align-items: center;
+      display: grid;
+      grid-template-columns: 7.5em 1fr;
+      grid-gap: ${spacing[1]};
+    `;
+  });
+  const ItemTitle = styled.div(({ theme }) => {
+    const { colors, fontWeights } = theme;
+    return `
+      color: ${colors.blue[7]};
+      font-weight: ${fontWeights.body.bold};
+      text-transform: uppercase;
+    `;
+  });
+  const ItemContent = styled.div`
+    font-size: 0.9em;
+  `;
+
+  return (
+    <ProfileItemList>
+      <Item>
+        <ItemTitle>Origin</ItemTitle>
+        <ItemContent>{` ${origin.name}`}</ItemContent>
+      </Item>
+      <Item>
+        <ItemTitle>Background</ItemTitle>
+        <ItemContent>{` ${background.name}`}</ItemContent>
+      </Item>
+      <Item>
+        <ItemTitle>Social Class</ItemTitle>
+        <ItemContent>{` ${socialClass.name}`}</ItemContent>
+      </Item>
+      <Item>
+        <ItemTitle>Profession</ItemTitle>
+        <ItemContent>{` ${profession.name}`}</ItemContent>
+      </Item>
+      <Item>
+        <ItemTitle>Drive</ItemTitle>
+        <ItemContent>{` ${drive.name}`}</ItemContent>
+      </Item>
+    </ProfileItemList>
+  );
+};
 ProfileSection.propTypes = {
   origin: shape({ name: string }),
   background: shape({ name: string }),

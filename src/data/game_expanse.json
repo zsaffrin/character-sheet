@@ -28,20 +28,75 @@
     "urb": { "name": "Urban", "socialClass": "low" }
   },
   "conditions": {
-    "blind": { "name": "Blinded" },
-    "deaf": { "name": "Deafened" },
-    "dying": { "name": "Dying" },
-    "exhaus": { "name": "Exhausted" },
-    "fatig": { "name": "Fatigued" },
-    "ff": { "name": "Free-Falling" },
-    "help": { "name": "Helpless" },
-    "hind": { "name": "Hindered" },
-    "inj": { "name": "Injured" },
-    "prone": { "name": "Prone" },
-    "restr": { "name": "Restrained" },
-    "uncon": { "name": "Unconscious" },
-    "wound": { "name": "Wounded" }
+    "blind": { "name": "Blinded", "icon": "👁️" },
+    "deaf": { "name": "Deafened", "icon": "👂" },
+    "dying": { "name": "Dying", "icon": "💀" },
+    "exhaus": { "name": "Exhausted", "icon": "😴" },
+    "fatig": { "name": "Fatigued", "icon": "😪" },
+    "ff": { "name": "Free-Falling", "icon": "⬇️" },
+    "help": { "name": "Helpless", "icon": "❕" },
+    "hind": { "name": "Hindered", "icon": "♿" },
+    "inj": { "name": "Injured", "icon": "🏥" },
+    "prone": { "name": "Prone", "icon": "⏚" },
+    "restr": { "name": "Restrained", "icon": "🔒" },
+    "uncon": { "name": "Unconscious", "icon": "💤" },
+    "wound": { "name": "Wounded", "icon": "🔪" }
   },
+  "equipment": [
+    {
+      "key": "padding",
+      "category": "armor",
+      "name": "Padding",
+      "cost": 8,
+      "armorBonus": 1,
+      "armorPenalty": 0
+    },
+    {
+      "key": "lightarm",
+      "category": "armor",
+      "name": "Light Armor",
+      "cost": 12,
+      "armorBonus": 2,
+      "armorPenalty": -1
+    },
+    {
+      "key": "medarm",
+      "category": "armor",
+      "name": "Medium Armor",
+      "cost": 14,
+      "armorBonus": 4,
+      "armorPenalty": -2
+    },
+    {
+      "key": "heavyarm",
+      "category": "armor",
+      "name": "Heavy Armor",
+      "cost": 16,
+      "armorBonus": 6,
+      "armorPenalty": -3
+    },
+    {
+      "key": "powerarm",
+      "category": "armor",
+      "name": "Power Armor",
+      "armorBonus": 12,
+      "armorPenalty": 0
+    },
+    {
+      "key": "riot",
+      "category": "shield",
+      "name": "Riot Shield",
+      "cost": 13,
+      "defenseBonus": 2
+    },
+    {
+      "key": "ballistic",
+      "category": "shield",
+      "name": "Ballistic Shield",
+      "cost": 14,
+      "defenseBonus": 3
+    }
+  ],
   "drives": {
     "ach": { "name": "Achiever" },
     "build": { "name": "Builder" },
@@ -116,7 +171,11 @@
     "swim": { "name": "Swimming", "ability": "con" },
     "tact": { "name": "Tactics", "ability": "int" },
     "taste": { "name": "Tasting", "ability": "per" },
-    "tech": { "name": "Technology", "ability": "int" },
+    "tech": {
+      "name": "Technology",
+      "desc": "Knowledge of the design and operation of technology, particularly computers, which are incorporated into nearly all technological items in The Expanse.",
+      "ability": "int"
+    },
     "thr": { "name": "Throwing", "ability": "acc" },
     "tol": { "name": "Tolerance", "ability": "con" },
     "touch": { "name": "Touching", "ability": "per" },
@@ -158,6 +217,21 @@
     "low": { "name": "Lower Class" },
     "mid": { "name": "Middle Class" },
     "up": { "name": "Upper Class" }
+  },
+  "specializations": {
+    "acad": { "name": "Academic", "requirements": [] },
+    "ace": { "name": "Ace", "requirements": [] },
+    "age": { "name": "Agent", "requirements": [] },
+    "com": { "name": "Commando", "requirements": [] },
+    "exec": { "name": "Executive", "requirements": [] },
+    "gun": { "name": "Gunfighter", "requirements": [] },
+    "hack": { "name": "Hacker", "requirements": [] },
+    "inv": { "name": "Investigator", "requirements": [] },
+    "mart": { "name": "Martial Artist", "requirements": [] },
+    "snip": { "name": "Sniper", "requirements": [] },
+    "soc": { "name": "Socialite", "requirements": [] },
+    "star": { "name": "Star", "requirements": [] },
+    "thief": { "name": "Thief", "requirements": [] }
   },
   "talents": {
     "affl": { "name": "Affluent", "requirements": [] },
@@ -201,19 +275,31 @@
     "throw": { "name": "Thrown Weapon Style", "requirements": [] },
     "two": { "name": "Two-Handed Style", "requirements": [] }
   },
-  "specializations": {
-    "acad": { "name": "Academic", "requirements": [] },
-    "ace": { "name": "Ace", "requirements": [] },
-    "age": { "name": "Agent", "requirements": [] },
-    "com": { "name": "Commando", "requirements": [] },
-    "exec": { "name": "Executive", "requirements": [] },
-    "gun": { "name": "Gunfighter", "requirements": [] },
-    "hack": { "name": "Hacker", "requirements": [] },
-    "inv": { "name": "Investigator", "requirements": [] },
-    "mart": { "name": "Martial Artist", "requirements": [] },
-    "snip": { "name": "Sniper", "requirements": [] },
-    "soc": { "name": "Socialite", "requirements": [] },
-    "star": { "name": "Star", "requirements": [] },
-    "thief": { "name": "Thief", "requirements": [] }
+  "weapons": {
+    "lclose": {
+      "name": "Light Close",
+      "damageDice": 1,
+      "cost": 6
+    },
+    "hclose": {
+      "name": "Heavy Close",
+      "damageDice": 2,
+      "cost": 7
+    },
+    "pistol": {
+      "name": "Pistol",
+      "damageDice": 2,
+      "cost": 10
+    },
+    "rifle": {
+      "name": "Rifle",
+      "damageDice": 3,
+      "cost": 12
+    },
+    "grenade": {
+      "name": "Grenade",
+      "damageDice": 3,
+      "cost": 15
+    }
   }
 }
