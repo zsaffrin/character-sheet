@@ -1,10 +1,10 @@
-[
-  {
+{
+  "robertgray": {
     "id": "1120945642",
     "name": "Dr Robert Gray",
     "gameKey": "pathfinder"
   },
-  {
+  "izzymoon": {
     "id": "917558184",
     "name": "Izzy Moon",
     "gameKey": "expanse",
@@ -48,5 +48,28 @@
       { "key": "improv", "level": "novice" },
       { "key": "mis", "level": "novice" }
     ]
+  },
+  "ardenrook": {
+    "id": "2193808075",
+    "name": "Arden Rook",
+    "gameKey": "dd5e",
+    "alignment": "Neutral Good",
+    "background": "entertainer",
+    "bonds": [],
+    "classLevels": {
+      "bard": 1
+    },
+    "flaws": [],
+    "gear": ["leatherArmor"],
+    "ideals": [],
+    "maxHp": 8,
+    "personalityTraits": [],
+    "proficiencies": ["acro", "ath", "ins", "med", "perc", "perf", "pers"],
+    "race": "halfelf",
+    "racialBonuses": [
+      { "bonusType": "abilDex", "bonus": 1 },
+      { "bonusType": "abilCon", "bonus": 1 }
+    ],
+    "xp": []
   }
-]
+}

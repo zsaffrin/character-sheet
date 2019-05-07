@@ -1,20 +1,23 @@
 import React from 'react';
-import { arrayOf, shape, string } from 'prop-types';
+import { shape, string } from 'prop-types';
 import { Link } from '@reach/router';
 
 const SelectionPage = ({ data, dataKey }) => (
   <div>
     <ul>
-      {data.map(({ id, name }) => (
-        <li>
-          <Link to={`/${dataKey}/${id}`}>{name}</Link>
-        </li>
-      ))}
+      {Object.keys(data).map((key) => {
+        const { id, name } = data[key];
+        return (
+          <li key={key}>
+            <Link to={`/${dataKey}/${id}`}>{name}</Link>
+          </li>
+        );
+      })}
     </ul>
   </div>
 );
 SelectionPage.propTypes = {
-  data: arrayOf(shape({})).isRequired,
+  data: shape({}).isRequired,
   dataKey: string.isRequired,
 };
 

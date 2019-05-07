@@ -1,0 +1,95 @@
+{
+  "id": "2669680013",
+  "key": "dd5e",
+  "name": "D&D 5th Edition",
+  "backgrounds": {
+    "acolyte": {},
+    "charlatan": {},
+    "criminal": {},
+    "entertainer": {
+      "name": "Entertainer"
+    },
+    "folkhero": {},
+    "gladiator": {},
+    "guildartisan": {},
+    "hermit": {},
+    "knight": {},
+    "noble": {},
+    "outlander": {},
+    "pirate": {},
+    "sage": {},
+    "sailor": {},
+    "soldier": {},
+    "urchin": {}
+  },
+  "classes": {
+    "barbarian": {},
+    "bard": {
+      "index": 2,
+      "name": "Bard",
+      "hitDie": 8,
+      "levels": {
+        "1": {
+          "level": 1,
+          "proficiencyBonus": 2,
+          "features": ["spellcasting", "bardicInspiration"],
+          "spellsKnown": 2,
+          "cantripsKnown": 4,
+          "spellSlots": [2, 0, 0, 0, 0, 0, 0, 0, 0]
+        }
+      }
+    },
+    "cleric": {},
+    "druid": {},
+    "fighter": {},
+    "monk": {},
+    "paladin": {},
+    "ranger": {},
+    "rogue": {},
+    "sorcerer": {},
+    "warlock": {},
+    "wizard": {}
+  },
+  "items": {
+    "leatherArmor": {
+      "name": "Leather Armor",
+      "bonuses": []
+    }
+  },
+  "races": {
+    "dwarf": {},
+    "elf": {},
+    "halfling": {},
+    "human": {},
+    "dragonborn": {},
+    "gnome": {},
+    "halfelf": {
+      "index": 7,
+      "name": "Half-Elf",
+      "speed": 30,
+      "bonuses": [{ "bonusType": "abilCha", "bonus": 2 }]
+    },
+    "halforc": {},
+    "tiefling": {}
+  },
+  "skills": {
+    "acro": { "name": "Acrobatics" },
+    "anim": { "name": "Animal Handling" },
+    "arc": { "name": "Arcana" },
+    "ath": { "name": "Athletics" },
+    "dec": { "name": "Deception" },
+    "hist": { "name": "History" },
+    "ins": { "name": "Insight" },
+    "int": { "name": "Intimidation" },
+    "inv": { "name": "Investigation" },
+    "med": { "name": "Medicine" },
+    "nat": { "name": "Nature" },
+    "perc": { "name": "Perception" },
+    "perf": { "name": "Performance" },
+    "pers": { "name": "Persuasion" },
+    "rel": { "name": "Religion" },
+    "soh": { "name": "Sleight of Hand" },
+    "stel": { "name": "Stealth" },
+    "surv": { "name": "Survival" }
+  }
+}

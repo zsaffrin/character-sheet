@@ -2,12 +2,13 @@ import React from 'react';
 import { string } from 'prop-types';
 
 import ExpanseCharacter from './ExpanseCharacter/ExpanseCharacter';
-import DD5eCharacter from './DD5eCharacter';
+import DD5eCharacter from './DD5eCharacter/DD5eCharacter';
 
 import characterData from '../../../data/characters.json';
 
 const CharacterPage = ({ id }) => {
-  const char = characterData.find(c => c.id === id);
+  const charId = Object.keys(characterData).find(c => characterData[c].id === id);
+  const char = characterData[charId];
   if (!char) return <div>{`Character ${id} not found`}</div>;
 
   if (char.gameKey === 'expanse') return <ExpanseCharacter character={char} />;
