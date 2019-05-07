@@ -11,14 +11,11 @@ const CharacterInfo = ({ character: C, game: G }) => {
     .map(c => `${G.classes[c].name} ${C.classLevels[c]}`)
     .join(' ');
 
-  const Layout = styled.div(({ theme }) => {
-    const { space } = theme;
-    return `
-      grid-area: info;
-      display: grid;
-      grid-auto-flow: column;
-    `;
-  });
+  const Layout = styled.div`
+    grid-area: info;
+    display: grid;
+    grid-auto-flow: column;
+  `;
 
   return (
     <Layout>

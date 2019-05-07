@@ -6,29 +6,29 @@ const ProfileSection = ({
   origin, background, socialClass, profession, drive,
 }) => {
   const ProfileItemList = styled.ul(({ theme }) => {
-    const { spacing } = theme;
+    const { space } = theme;
     return `
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      grid-gap: ${spacing[1]};
+      grid-gap: ${space.sm};
     `;
   });
   const Item = styled.li(({ theme }) => {
-    const { spacing } = theme;
+    const { space } = theme;
     return `
       align-items: center;
       display: grid;
       grid-template-columns: 7.5em 1fr;
-      grid-gap: ${spacing[1]};
+      grid-gap: ${space.sm};
     `;
   });
   const ItemTitle = styled.div(({ theme }) => {
-    const { colors, fontWeights } = theme;
+    const { colors, font } = theme;
     return `
       color: ${colors.blue[7]};
-      font-weight: ${fontWeights.body.bold};
+      font-weight: ${font.weight.body.bold};
       text-transform: uppercase;
     `;
   });

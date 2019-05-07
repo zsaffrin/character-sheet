@@ -10,7 +10,7 @@ const DefaultLayout = ({ children }) => {
       display: grid;
       grid-gap: ${space.md};
       grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr 1fr;
       grid-template-areas:
         'info info info'
         'mechanics combat characteristics'

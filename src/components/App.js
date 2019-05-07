@@ -24,20 +24,20 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const AppStyle = styled.div(({ theme }) => {
-  const { fonts, colors } = theme;
+  const { font, colors } = theme;
 
   return `
     color: ${colors.blue[9]};
-    font-family: ${fonts.body};
+    font-family: ${font.stack.body};
     min-height: 100vh;
   `;
 });
 
 const Page = styled.div(({ theme }) => {
-  const { spacing } = theme;
+  const { space } = theme;
 
   return `
-    padding: ${spacing[1]}
+    padding: ${space.sm}
   `;
 });
 

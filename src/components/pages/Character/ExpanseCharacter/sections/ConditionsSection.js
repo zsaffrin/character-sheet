@@ -4,19 +4,19 @@ import styled from 'styled-components';
 
 const ConditionsSection = ({ conditions, gConditions, toggleCondition }) => {
   const ConditionList = styled.ul(({ theme }) => {
-    const { spacing } = theme;
+    const { space } = theme;
     return `
       list-style: none;
       margin: 0;
       padding: 0;
       display: grid;
-      grid-gap: ${spacing[1]};
+      grid-gap: ${space.sm};
       grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
     `;
   });
   const ConditionListItem = styled.li``;
   const ConditionLabel = styled.label(({ checked, theme }) => {
-    const { colors, spacing } = theme;
+    const { colors, space } = theme;
     return `
       background: ${checked ? colors.red[4] : 'inherit'};
       border: 1px solid ${colors.gray[2]};
@@ -25,7 +25,7 @@ const ConditionsSection = ({ conditions, gConditions, toggleCondition }) => {
       display: grid;
       justify-items: center;
       font-size: 0.8em;
-      padding: ${spacing[1]};
+      padding: ${space.sm};
       text-transform: uppercase;
     `;
   });

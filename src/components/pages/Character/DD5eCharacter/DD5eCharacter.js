@@ -5,10 +5,10 @@ import game from '../../../../data/game_dd5e.json';
 import Section from './Section';
 import DefaultLayout from './DefaultLayout';
 import CharacterInfo from './CharacterInfo/CharacterInfo';
+import Mechanics from './Mechanics/Mechanics';
 
 const DD5eCharacter = ({ character }) => {
   const sections = [
-    <div>mechanics</div>,
     <div>combat</div>,
     <div>actions</div>,
     <div>characteristics</div>,
@@ -20,6 +20,7 @@ const DD5eCharacter = ({ character }) => {
   return (
     <DefaultLayout>
       <CharacterInfo character={character} game={game} />
+      <Mechanics character={character} game={game} />
 
       {sections.map((s, i) => (
         <Section key={i}>{s}</Section>

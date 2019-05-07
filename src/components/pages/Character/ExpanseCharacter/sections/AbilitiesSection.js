@@ -6,10 +6,10 @@ const AbilitiesSection = ({
   cAbilities, gAbilities, cFocuses, gFocuses,
 }) => {
   const AbilityList = styled.ul(({ theme }) => {
-    const { spacing } = theme;
+    const { space } = theme;
     return `
       display: grid;
-      grid-gap: ${spacing[1]};
+      grid-gap: ${space.sm};
       list-style: none;
       padding: 0;
       margin: 0;
@@ -25,27 +25,27 @@ const AbilitiesSection = ({
     `;
   });
   const AbilityTitle = styled.div(({ theme }) => {
-    const { fontWeights, spacing } = theme;
+    const { font, space } = theme;
     return `
     display: grid;
     align-items: center;  
-    font-weight: ${fontWeights.body.bold};
-    padding: ${spacing[1]};
+    font-weight: ${font.weight.body.bold};
+    padding: ${space.sm};
     `;
   });
   const AbilityScore = styled.div(({ theme }) => {
-    const { colors, fontWeights, spacing } = theme;
+    const { colors, font, space } = theme;
     return `
       background: ${colors.blue[7]};
       color: ${colors.gray[0]};
-      font-weight: ${fontWeights.body.black};
-      padding: ${spacing[1]} ${spacing[2]};
+      font-weight: ${font.weight.body.black};
+      padding: ${space.sm} ${space.md};
     `;
   });
   const AbilityFocusList = styled.ul(({ theme }) => {
-    const { spacing } = theme;
+    const { space } = theme;
     return `
-      padding: ${spacing[1]};
+      padding: ${space.sm};
       grid-column: 1 / -1;
       list-style: none;
       margin: 0;
@@ -60,19 +60,19 @@ const AbilitiesSection = ({
     `;
   });
   const AbilityFocusItemHeader = styled.div(({ theme }) => {
-    const { colors, fontWeights, spacing } = theme;
+    const { colors, font, space } = theme;
     return `
       background: ${colors.gray[2]};
-      font-weight: ${fontWeights.body.bold};
-      padding: 0 ${spacing[1]};
+      font-weight: ${font.weight.body.bold};
+      padding: 0 ${space.sm};
     `;
   });
   const AbilityFocusItemContent = styled.div(({ theme }) => {
-    const { colors, spacing } = theme;
+    const { colors, space } = theme;
     return `
       color: ${colors.blue[4]};
       font-size: 0.8em;  
-      padding: ${spacing[1]};
+      padding: ${space.sm};
     `;
   });
 

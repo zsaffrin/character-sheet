@@ -14,17 +14,17 @@ const RelationshipsSection = ({ relationships }) => {
     `;
   });
   const RelationshipListItemHeader = styled.div(({ theme }) => {
-    const { colors, fontWeights } = theme;
+    const { colors, font } = theme;
     return `
       background: ${colors.gray[2]};
-      font-weight: ${fontWeights.body.bold};
+      font-weight: ${font.weight.body.bold};
     `;
   });
   const RelationshipListItemContent = styled.div(({ theme }) => {
-    const { colors, spacing } = theme;
+    const { colors, space } = theme;
     return `
       color: ${colors.blue[5]};
-      padding: ${spacing[1]};
+      padding: ${space.sm};
       font-size: 0.8em;
     `;
   });

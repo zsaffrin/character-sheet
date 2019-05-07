@@ -2,6 +2,14 @@
   "id": "2669680013",
   "key": "dd5e",
   "name": "D&D 5th Edition",
+  "abilities": {
+    "str": { "name": "Strength" },
+    "dex": { "name": "Dexterity" },
+    "con": { "name": "Constitution" },
+    "int": { "name": "Intelligence" },
+    "wis": { "name": "Wisdom" },
+    "cha": { "name": "Charisma" }
+  },
   "backgrounds": {
     "acolyte": {},
     "charlatan": {},

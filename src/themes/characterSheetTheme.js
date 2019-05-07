@@ -161,25 +161,26 @@ const theme = {
       '#31021c',
     ],
   },
-  fonts: {
-    body: '"Lato", sans-serif',
-  },
-  fontWeights: {
-    body: {
-      light: 300,
-      regular: 400,
-      bold: 700,
-      black: 900,
-    },
-  },
   font: {
+    size: {
+      xs: `${baseFontSize * 0.6}px`,
+      sm: `${baseFontSize * 0.75}px`,
+      normal: `${baseFontSize}px`,
+      lg: `${baseFontSize * 1.35}px`,
+      xl: `${baseFontSize * 2}px`,
+    },
+    stack: {
+      body: '"Lato", sans-serif',
+    },
     weight: {
       body: {
+        light: 300,
+        regular: 400,
         bold: 700,
+        black: 900,
       },
     },
   },
-  spacing: [0, '5px', '10px', '15px', '20px'],
   space: {
     thin: '2px',
     sm: `${baseFontSize / 4}px`,

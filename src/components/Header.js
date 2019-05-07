@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Header = () => {
   const StyledHeader = styled.header(({ theme }) => {
-    const { colors, spacing } = theme;
+    const { colors, space } = theme;
 
     return `
       background: ${colors.red[5]};
@@ -12,8 +12,8 @@ const Header = () => {
       display: grid;
       grid-auto-columns: min-content;
       grid-auto-flow: column;
-      grid-gap: ${spacing[2]};
-      padding: ${spacing[1]};
+      grid-gap: ${space.md};
+      padding: ${space.sm};
 
       & a {
         color: inherit;

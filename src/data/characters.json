@@ -53,6 +53,14 @@
     "id": "2193808075",
     "name": "Arden Rook",
     "gameKey": "dd5e",
+    "abilityScores": {
+      "str": 12,
+      "dex": 14,
+      "con": 13,
+      "int": 10,
+      "wis": 8,
+      "cha": 15
+    },
     "alignment": "Neutral Good",
     "background": "entertainer",
     "bonds": [],
