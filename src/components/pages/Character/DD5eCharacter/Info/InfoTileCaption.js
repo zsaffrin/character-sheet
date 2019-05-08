@@ -2,7 +2,7 @@ import React from 'react';
 import { string } from 'prop-types';
 import styled from 'styled-components';
 
-const FieldCaption = ({ label }) => {
+const InfoTileCaption = ({ label }) => {
   const Caption = styled.div(({ theme }) => {
     const { colors, font } = theme;
     return `
@@ -14,11 +14,11 @@ const FieldCaption = ({ label }) => {
 
   return <Caption>{label}</Caption>;
 };
-FieldCaption.propTypes = {
+InfoTileCaption.propTypes = {
   label: string,
 };
-FieldCaption.defaultProps = {
+InfoTileCaption.defaultProps = {
   label: '',
 };
 
-export default FieldCaption;
+export default InfoTileCaption;

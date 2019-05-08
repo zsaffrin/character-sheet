@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, string } from 'prop-types';
 import styled from 'styled-components';
 
-import FieldCaption from '../shared/FieldCaption';
+import InfoTileCaption from './InfoTileCaption';
 
 const InfoTile = ({ big, title, value }) => {
   const Tile = styled.div`
@@ -22,7 +22,7 @@ const InfoTile = ({ big, title, value }) => {
     <Tile>
       <div>{big ? <h1>{value}</h1> : value}</div>
       <TileTitle>
-        <FieldCaption label={title} />
+        <InfoTileCaption label={title} />
       </TileTitle>
     </Tile>
   );

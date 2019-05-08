@@ -45,7 +45,8 @@
           "cantripsKnown": 4,
           "spellSlots": [2, 0, 0, 0, 0, 0, 0, 0, 0]
         }
-      }
+      },
+      "savingThrows": ["dex", "cha"]
     },
     "cleric": {},
     "druid": {},
@@ -81,23 +82,23 @@
     "tiefling": {}
   },
   "skills": {
-    "acro": { "name": "Acrobatics" },
-    "anim": { "name": "Animal Handling" },
-    "arc": { "name": "Arcana" },
-    "ath": { "name": "Athletics" },
-    "dec": { "name": "Deception" },
-    "hist": { "name": "History" },
-    "ins": { "name": "Insight" },
-    "int": { "name": "Intimidation" },
-    "inv": { "name": "Investigation" },
-    "med": { "name": "Medicine" },
-    "nat": { "name": "Nature" },
-    "perc": { "name": "Perception" },
-    "perf": { "name": "Performance" },
-    "pers": { "name": "Persuasion" },
-    "rel": { "name": "Religion" },
-    "soh": { "name": "Sleight of Hand" },
-    "stel": { "name": "Stealth" },
-    "surv": { "name": "Survival" }
+    "acro": { "name": "Acrobatics", "abilityKey": "dex" },
+    "anim": { "name": "Animal Handling", "abilityKey": "wis" },
+    "arc": { "name": "Arcana", "abilityKey": "int" },
+    "ath": { "name": "Athletics", "abilityKey": "str" },
+    "dec": { "name": "Deception", "abilityKey": "cha" },
+    "hist": { "name": "History", "abilityKey": "int" },
+    "ins": { "name": "Insight", "abilityKey": "wis" },
+    "int": { "name": "Intimidation", "abilityKey": "cha" },
+    "inv": { "name": "Investigation", "abilityKey": "int" },
+    "med": { "name": "Medicine", "abilityKey": "wis" },
+    "nat": { "name": "Nature", "abilityKey": "int" },
+    "perc": { "name": "Perception", "abilityKey": "wis" },
+    "perf": { "name": "Performance", "abilityKey": "cha" },
+    "pers": { "name": "Persuasion", "abilityKey": "cha" },
+    "rel": { "name": "Religion", "abilityKey": "int" },
+    "soh": { "name": "Sleight of Hand", "abilityKey": "dex" },
+    "stel": { "name": "Stealth", "abilityKey": "dex" },
+    "surv": { "name": "Survival", "abilityKey": "wis" }
   }
 }

@@ -1,37 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Abilities from './Abilities';
-import HorizontalScore from './HorizontalScore';
+import HorizontalScore from '../shared/HorizontalScore';
+import SavingThrows from './SavingThrows';
+import Skills from './Skills/Skills';
 
-const Mechanics = ({ character: C, game: G }) => {
+const Mechanics = ({ saves, skills }) => {
   const Layout = styled.div(({ theme }) => {
     const { space } = theme;
     return `
-      grid-area: info;
+      grid-area: mechanics;
       display: grid;
-      grid-gap: ${space.md};
-      grid-template-columns: auto 1fr;
-    `;
-  });
-  const RightColumn = styled.div(({ theme }) => {
-    const { space } = theme;
-    return `
-      display: grid;
-      grid-gap: ${space.md};
-      grid-auto-rows: min-content;
+      grid-gap: ${space.lg};
+      grid-template-rows: repeat(3, auto) 1fr;
     `;
   });
 
   return (
     <Layout>
-      <Abilities charAbilities={C.abilityScores} gameAbilities={G.abilities} />
-      <RightColumn>
-        <HorizontalScore label="Inspiration" score="0" />
-        <HorizontalScore label="Proficiency" score="0" />
-        <div>Saving Throws</div>
-        <div>Skills</div>
-      </RightColumn>
+      <HorizontalScore title="Inspiration" mod />
+      <HorizontalScore title="Proficiency Bonus" mod />
+      <SavingThrows saves={saves} />
+      <Skills skills={skills} />
     </Layout>
   );
 };
