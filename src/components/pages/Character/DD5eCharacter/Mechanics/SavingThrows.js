@@ -9,8 +9,8 @@ const SavingThrows = ({ saves }) => {
     const { space } = theme;
     return `
       display: grid;
-      grid-gap: ${space.lg};
-      padding: ${space.lg};
+      grid-gap: ${space.md};
+      padding: ${space.md};
     `;
   });
 
