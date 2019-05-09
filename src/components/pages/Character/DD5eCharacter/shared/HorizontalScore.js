@@ -9,6 +9,7 @@ const HorizontalScore = ({ mod, score, title }) => {
   const StyledScore = styled.div(({ theme }) => {
     const { font, space } = theme;
     return `
+      font-size: ${font.size.lg};
       font-weight: ${font.weight.body.black};
       padding: ${space.sm} ${space.lg};
     `;

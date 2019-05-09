@@ -11,7 +11,7 @@ const Mechanics = ({ proficiency, saves, skills }) => {
     return `
       grid-area: mechanics;
       display: grid;
-      grid-gap: ${space.lg};
+      grid-gap: ${space.md};
       grid-template-rows: repeat(3, auto) 1fr;
     `;
   });
