@@ -6,14 +6,11 @@ import AbilityScore from './AbilityScore';
 import AbilityMod from './AbilityMod';
 
 const AbilityTile = ({ mod, score }) => {
-  const Layout = styled.div(({ theme }) => {
-    const { font } = theme;
-    return `
-      align-items: center;
-      display: grid;
-      height: 100%;
-    `;
-  });
+  const Layout = styled.div`
+    align-items: center;
+    display: grid;
+    height: 100%;
+  `;
 
   return (
     <Layout>

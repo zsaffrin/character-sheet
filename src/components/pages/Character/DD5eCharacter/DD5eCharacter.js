@@ -9,6 +9,7 @@ import {
   useSavingThrows,
   useSkills,
   useFeatures,
+  useGear,
 } from './utils/hooks';
 import { ListSection } from './shared';
 import Info from './Info/Info';
@@ -25,6 +26,7 @@ const DD5eCharacter = ({ character }) => {
   const proficiencyBonus = useProficiency(character, game);
   const skills = useSkills(character, game, abilities, proficiencyBonus);
   const features = useFeatures(character, game);
+  const gear = useGear(character.gear, game.items);
 
   const Layout = styled.div(({ theme }) => {
     const { colors, font, space } = theme;
@@ -33,7 +35,7 @@ const DD5eCharacter = ({ character }) => {
       display: grid;
       font-size: ${font.size.normal};
       grid-gap: ${space.md};
-      grid-template-columns: auto repeat(3, 1fr);
+      grid-template-columns: repeat(2, auto) repeat(2, 1fr);
       grid-template-rows: auto repeat(3, 1fr);
       grid-template-areas:
         'info info info info'
@@ -53,7 +55,7 @@ const DD5eCharacter = ({ character }) => {
       <Actions />
       <Characteristics characteristics={character.characteristics} />
       <ListSection gridArea="features" title="Features & Traits" items={features} />
-      <Equipment />
+      <Equipment items={gear} />
       <Proficiencies />
     </Layout>
   );

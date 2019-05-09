@@ -23,7 +23,7 @@ const Box = ({
       font-size: ${titleSize ? font.size[titleSize] : 'inherit'};
       font-weight: ${font.weight.body.bold};
       order: ${compact ? '1' : '0'};
-      padding: ${space.thin};
+      padding: ${space.thin} ${space.md};
       text-align: center;
       text-transform: uppercase;
     `;

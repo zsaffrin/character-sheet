@@ -164,7 +164,7 @@ const theme = {
   },
   font: {
     size: {
-      xs: `${baseFontSize * 0.6}px`,
+      xs: `${baseFontSize * 0.55}px`,
       sm: `${baseFontSize * 0.75}px`,
       normal: `${baseFontSize}px`,
       lg: `${baseFontSize * 1.35}px`,

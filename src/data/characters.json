@@ -89,7 +89,7 @@
     "classLevels": {
       "bard": 1
     },
-    "gear": ["leatherArmor"],
+    "gear": ["leatherArmor", "dagger", "rapier"],
     "maxHp": 8,
     "proficiencies": ["acro", "ath", "ins", "med", "perc", "perf", "pers"],
     "race": "halfelf",
