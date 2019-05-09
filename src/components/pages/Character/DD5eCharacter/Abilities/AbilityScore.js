@@ -6,7 +6,7 @@ const AbilityScore = ({ score }) => {
   const StyledScore = styled.div(({ theme }) => {
     const { font } = theme;
     return `
-      font-size: ${font.size.lg};
+      font-size: ${font.size.xl};
       font-weight: ${font.weight.body.black};
       text-align: center;
     `;
