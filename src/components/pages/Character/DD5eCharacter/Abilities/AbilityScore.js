@@ -7,6 +7,7 @@ const AbilityScore = ({ score }) => {
     const { font } = theme;
     return `
       font-size: ${font.size.lg};
+      font-weight: ${font.weight.body.black};
       text-align: center;
     `;
   });

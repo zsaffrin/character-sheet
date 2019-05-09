@@ -5,7 +5,7 @@ import HorizontalScore from '../shared/HorizontalScore';
 import SavingThrows from './SavingThrows';
 import Skills from './Skills/Skills';
 
-const Mechanics = ({ saves, skills }) => {
+const Mechanics = ({ proficiency, saves, skills }) => {
   const Layout = styled.div(({ theme }) => {
     const { space } = theme;
     return `
@@ -19,7 +19,7 @@ const Mechanics = ({ saves, skills }) => {
   return (
     <Layout>
       <HorizontalScore title="Inspiration" mod />
-      <HorizontalScore title="Proficiency Bonus" mod />
+      <HorizontalScore title="Proficiency Bonus" score={proficiency} mod />
       <SavingThrows saves={saves} />
       <Skills skills={skills} />
     </Layout>

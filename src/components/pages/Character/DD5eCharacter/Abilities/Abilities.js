@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Box from '../shared/Box';
-import AbilityScore from './AbilityScore';
-import AbilityMod from './AbilityMod';
+import AbilityTile from './AbilityTile';
 
 const Abilities = ({ abilities }) => {
   const Layout = styled.div(({ theme }) => {
@@ -11,7 +10,7 @@ const Abilities = ({ abilities }) => {
     return `
       grid-area: abilities;
       display: grid;
-      grid-gap: ${space.sm};
+      grid-gap: ${space.md};
     `;
   });
 
@@ -21,8 +20,7 @@ const Abilities = ({ abilities }) => {
         const { name, mod, score } = abilities[k];
         return (
           <Box title={name} titleSize="sm" key={k}>
-            <AbilityScore score={score} />
-            <AbilityMod score={mod} />
+            <AbilityTile mod={mod} score={score} />
           </Box>
         );
       })}

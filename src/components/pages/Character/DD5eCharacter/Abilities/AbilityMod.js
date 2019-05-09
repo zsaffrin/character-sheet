@@ -8,7 +8,7 @@ const AbilityMod = ({ score }) => {
   const StyledScore = styled.div(({ theme }) => {
     const { font } = theme;
     return `
-      font-weight: ${font.weight.body.bold};
+      font-weight: ${font.weight.body.black};
       text-align: center;
     `;
   });

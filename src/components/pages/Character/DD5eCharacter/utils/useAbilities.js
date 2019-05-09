@@ -25,7 +25,7 @@ const useAbilities = (character, game) => {
       {},
     );
     setAbilities(newAbilities);
-  }, []);
+  }, [character]);
 
   return abilities;
 };

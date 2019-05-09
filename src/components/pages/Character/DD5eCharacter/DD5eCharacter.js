@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import game from '../../../../data/game_dd5e.json';
 import useAbilities from './utils/useAbilities';
 import useSavingThrows from './utils/useSavingThrows';
-import { prepareSkills } from './utils/characterUtils';
+import useSkills from './utils/useSkills';
+import useProficiency from './utils/useProficiency';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
 import Mechanics from './Mechanics/Mechanics';
@@ -13,8 +14,8 @@ import Mechanics from './Mechanics/Mechanics';
 const DD5eCharacter = ({ character }) => {
   const abilities = useAbilities(character, game);
   const saves = useSavingThrows(character, game, abilities);
-
-  const skills = prepareSkills(game.skills, character.proficiencies, abilities);
+  const proficiencyBonus = useProficiency(character, game);
+  const skills = useSkills(character, game, abilities, proficiencyBonus);
 
   const Layout = styled.div(({ theme }) => {
     const { colors, space } = theme;
@@ -36,7 +37,7 @@ const DD5eCharacter = ({ character }) => {
     <Layout>
       <Info character={character} game={game} />
       <Abilities abilities={abilities} />
-      <Mechanics saves={saves} skills={skills} />
+      <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
       <div style={{ gridArea: 'combat' }}>combat</div>
       <div style={{ gridArea: 'actions' }}>actions</div>
       <div style={{ gridArea: 'characteristics' }}>characteristics</div>
