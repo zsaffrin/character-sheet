@@ -9,6 +9,11 @@ import {
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
 import Mechanics from './Mechanics/Mechanics';
+import Actions from './Actions/Actions';
+import Characteristics from './Characteristics/Characteristics';
+import Features from './Features/Features';
+import Equipment from './Equipment/Equipment';
+import Proficiencies from './Proficiencies/Proficiencies';
 
 const DD5eCharacter = ({ character }) => {
   const abilities = useAbilities(character, game);
@@ -23,13 +28,14 @@ const DD5eCharacter = ({ character }) => {
       display: grid;
       font-size: ${font.size.normal};
       grid-gap: ${space.md};
-      grid-template-columns: auto 1fr 1fr 1fr;
-      grid-template-rows: auto repeat(auto-fit, 1fr);
+      grid-template-columns: auto repeat(3, 1fr);
+      grid-template-rows: auto repeat(3, 1fr);
       grid-template-areas:
         'info info info info'
         'abilities mechanics combat characteristics'
         'abilities mechanics actions features'
         'proficiencies proficiencies equipment features';
+      height: 100%;
     `;
   });
 
@@ -39,11 +45,11 @@ const DD5eCharacter = ({ character }) => {
       <Abilities abilities={abilities} />
       <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
       <div style={{ gridArea: 'combat' }}>combat</div>
-      <div style={{ gridArea: 'actions' }}>actions</div>
-      <div style={{ gridArea: 'characteristics' }}>characteristics</div>
-      <div style={{ gridArea: 'features' }}>features</div>
-      <div style={{ gridArea: 'equipment' }}>equipment</div>
-      <div style={{ gridArea: 'proficiencies' }}>proficiencies</div>
+      <Actions />
+      <Characteristics />
+      <Features />
+      <Equipment />
+      <Proficiencies />
     </Layout>
   );
 };

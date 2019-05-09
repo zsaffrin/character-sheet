@@ -12,6 +12,7 @@ const useSkills = (character, game, abilities, proficiencyBonus) => {
 
       return Object.assign(obj, {
         [key]: {
+          ability: abilityKey,
           bonus,
           name,
           proficient,

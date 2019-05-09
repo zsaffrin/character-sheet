@@ -29,7 +29,9 @@ const AppStyle = styled.div(({ theme }) => {
   return `
     color: ${colors.blue[9]};
     font-family: ${font.stack.body};
+    display: grid;
     min-height: 100vh;
+    grid-template-rows: auto 1fr;
   `;
 });
 
@@ -38,6 +40,7 @@ const Page = styled.div(({ theme }) => {
 
   return `
     padding: ${space.sm}
+    display: grid;
   `;
 });
 

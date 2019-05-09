@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Box from '../../shared/Box';
+import { Panel } from '../../shared';
 import Skill from './Skill';
 
 const Skills = ({ skills }) => {
@@ -14,13 +14,13 @@ const Skills = ({ skills }) => {
   });
 
   return (
-    <Box title="Skills">
+    <Panel title="Skills">
       <Layout>
         {Object.keys(skills).map(s => (
           <Skill skill={skills[s]} key={s} />
         ))}
       </Layout>
-    </Box>
+    </Panel>
   );
 };
 
