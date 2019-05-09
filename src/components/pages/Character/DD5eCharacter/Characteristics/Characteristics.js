@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Panel } from '../shared';
+import { ListSection } from '../shared';
 
-const Characteristics = () => {
+const Characteristics = ({ characteristics }) => {
+  const {
+    bonds, flaws, ideals, personalityTraits,
+  } = characteristics;
+
   const Layout = styled.div(({ theme }) => {
     const { space } = theme;
     return `
@@ -15,10 +19,10 @@ const Characteristics = () => {
 
   return (
     <Layout>
-      <Panel title="Personality Traits" />
-      <Panel title="Ideals" />
-      <Panel title="Bonds" />
-      <Panel title="Flaws" />
+      <ListSection title="Personality Traits" items={personalityTraits} />
+      <ListSection title="Ideals" items={ideals} />
+      <ListSection title="Bonds" items={bonds} />
+      <ListSection title="Flaws" items={flaws} />
     </Layout>
   );
 };

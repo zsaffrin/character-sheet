@@ -22,12 +22,9 @@ const Panel = ({ children, title }) => {
       text-transform: uppercase;
     `;
   });
-  const PanelContent = styled.div(({ theme }) => {
-    const {} = theme;
-    return `
-      display: grid;
-    `;
-  });
+  const PanelContent = styled.div`
+    display: grid;
+  `;
 
   return (
     <StyledPanel>

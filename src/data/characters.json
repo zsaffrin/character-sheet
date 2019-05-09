@@ -63,15 +63,34 @@
     },
     "alignment": "Neutral Good",
     "background": "entertainer",
-    "bonds": [],
+    "characteristics": {
+      "bonds": [
+        {
+          "desc": "Bond. Character bond."
+        }
+      ],
+      "flaws": [
+        {
+          "desc": "Far, I mean FAR, too good-looking"
+        }
+      ],
+      "ideals": [
+        {
+          "name": "Altruism",
+          "desc": "It is the duty of the capable to defend the helpless"
+        }
+      ],
+      "personalityTraits": [
+        {
+          "desc": "My milkshake brings all the boys to the yard"
+        }
+      ]
+    },
     "classLevels": {
       "bard": 1
     },
-    "flaws": [],
     "gear": ["leatherArmor"],
-    "ideals": [],
     "maxHp": 8,
-    "personalityTraits": [],
     "proficiencies": ["acro", "ath", "ins", "med", "perc", "perf", "pers"],
     "race": "halfelf",
     "racialBonuses": [

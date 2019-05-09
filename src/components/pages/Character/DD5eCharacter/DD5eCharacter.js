@@ -4,14 +4,18 @@ import styled from 'styled-components';
 
 import game from '../../../../data/game_dd5e.json';
 import {
-  useAbilities, useProficiency, useSavingThrows, useSkills,
+  useAbilities,
+  useProficiency,
+  useSavingThrows,
+  useSkills,
+  useFeatures,
 } from './utils/hooks';
+import { ListSection } from './shared';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
 import Mechanics from './Mechanics/Mechanics';
 import Actions from './Actions/Actions';
 import Characteristics from './Characteristics/Characteristics';
-import Features from './Features/Features';
 import Equipment from './Equipment/Equipment';
 import Proficiencies from './Proficiencies/Proficiencies';
 
@@ -20,6 +24,7 @@ const DD5eCharacter = ({ character }) => {
   const saves = useSavingThrows(character, game, abilities);
   const proficiencyBonus = useProficiency(character, game);
   const skills = useSkills(character, game, abilities, proficiencyBonus);
+  const features = useFeatures(character, game);
 
   const Layout = styled.div(({ theme }) => {
     const { colors, font, space } = theme;
@@ -46,8 +51,8 @@ const DD5eCharacter = ({ character }) => {
       <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
       <div style={{ gridArea: 'combat' }}>combat</div>
       <Actions />
-      <Characteristics />
-      <Features />
+      <Characteristics characteristics={character.characteristics} />
+      <ListSection gridArea="features" title="Features & Traits" items={features} />
       <Equipment />
       <Proficiencies />
     </Layout>
