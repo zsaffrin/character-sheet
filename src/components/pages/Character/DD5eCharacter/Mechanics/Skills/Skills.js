@@ -5,13 +5,9 @@ import { Panel } from '../../shared';
 import Skill from './Skill';
 
 const Skills = ({ skills }) => {
-  const Layout = styled.div(({ theme }) => {
-    const { space } = theme;
-    return `
-      display: grid;
-      padding: ${space.sm};
-    `;
-  });
+  const Layout = styled.div`
+    display: grid;
+  `;
 
   return (
     <Panel title="Skills">

@@ -9,7 +9,9 @@ const useGear = (charGear, gameItems) => {
     setGear(newGear);
   }, [charGear]);
 
-  return gear;
+  const weapons = gear.filter(item => item.type === 'weapon');
+
+  return { gear, weapons };
 };
 
 export default useGear;

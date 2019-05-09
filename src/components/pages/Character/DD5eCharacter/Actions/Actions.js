@@ -2,19 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Panel } from '../shared';
+import ActionSection from './ActionSection';
 
-const Actions = () => {
-  const Layout = styled.div(({ theme }) => {
-    const { space } = theme;
-    return `
-      display: grid;
-      grid-area: actions;
-    `;
-  });
+const Actions = ({ weapons }) => {
+  const Layout = styled.div`
+    display: grid;
+    grid-area: actions;
+  `;
 
   return (
     <Layout>
-      <Panel title="Attacks & Spellcasting" />
+      <Panel title="Attacks & Spellcasting">
+        <ActionSection title="Melee Attacks" type="attack" items={weapons} />
+        <ActionSection title="Cantrips" />
+        <ActionSection title="Spells" />
+      </Panel>
     </Layout>
   );
 };

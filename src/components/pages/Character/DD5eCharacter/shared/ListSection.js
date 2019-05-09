@@ -10,29 +10,21 @@ const ListSection = ({ gridArea, items, title }) => {
     grid-area: ${gridArea};
     display: grid;
   `;
-  const InnerWrap = styled.div(({ theme }) => {
-    const { space } = theme;
-    return `
-      padding: ${space.sm};
-    `;
-  });
 
   return (
     <OuterWrap>
       <Panel title={title}>
-        <InnerWrap>
-          {items.map(({
-            desc, name, source, sourceType,
-          }) => {
-            const key = name
-              || desc
-                .replace(/\W/g, '')
-                .substring(0, 7)
-                .toUpperCase();
-            const sourceString = sourceType ? `${sourceType} > ${source}` : source;
-            return <ListedItem desc={desc} title={name} source={sourceString} key={key} />;
-          })}
-        </InnerWrap>
+        {items.map(({
+          desc, name, source, sourceType,
+        }) => {
+          const key = name
+            || desc
+              .replace(/\W/g, '')
+              .substring(0, 7)
+              .toUpperCase();
+          const sourceString = sourceType ? `${sourceType} > ${source}` : source;
+          return <ListedItem desc={desc} title={name} source={sourceString} key={key} />;
+        })}
       </Panel>
     </OuterWrap>
   );

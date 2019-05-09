@@ -16,7 +16,6 @@ const Equipment = ({ items }) => {
       display: grid;
       grid-gap: ${space.sm};
       grid-template-rows: 1fr auto;
-      padding: ${space.sm};
     `;
   });
 

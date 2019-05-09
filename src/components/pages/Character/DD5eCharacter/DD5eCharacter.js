@@ -26,7 +26,7 @@ const DD5eCharacter = ({ character }) => {
   const proficiencyBonus = useProficiency(character, game);
   const skills = useSkills(character, game, abilities, proficiencyBonus);
   const features = useFeatures(character, game);
-  const gear = useGear(character.gear, game.items);
+  const { gear, weapons } = useGear(character.gear, game.items);
 
   const Layout = styled.div(({ theme }) => {
     const { colors, font, space } = theme;
@@ -52,7 +52,7 @@ const DD5eCharacter = ({ character }) => {
       <Abilities abilities={abilities} />
       <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
       <div style={{ gridArea: 'combat' }}>combat</div>
-      <Actions />
+      <Actions weapons={weapons} />
       <Characteristics characteristics={character.characteristics} />
       <ListSection gridArea="features" title="Features & Traits" items={features} />
       <Equipment items={gear} />
