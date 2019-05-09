@@ -17,10 +17,11 @@ const DD5eCharacter = ({ character }) => {
   const skills = useSkills(character, game, abilities, proficiencyBonus);
 
   const Layout = styled.div(({ theme }) => {
-    const { colors, space } = theme;
+    const { colors, font, space } = theme;
     return `
       color: ${colors.orange[8]};
       display: grid;
+      font-size: ${font.size.normal};
       grid-gap: ${space.md};
       grid-template-columns: auto 1fr 1fr 1fr;
       grid-template-rows: auto repeat(auto-fit, 1fr);
