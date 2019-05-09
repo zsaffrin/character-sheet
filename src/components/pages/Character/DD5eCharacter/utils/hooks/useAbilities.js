@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { calcAbilityMod, modFormat } from './characterUtils';
+import { calcAbilityMod, modFormat } from '../characterUtils';
 
 const useAbilities = (character, game) => {
   const [abilities, setAbilities] = useState({});

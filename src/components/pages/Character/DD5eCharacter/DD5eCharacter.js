@@ -3,10 +3,9 @@ import { shape } from 'prop-types';
 import styled from 'styled-components';
 
 import game from '../../../../data/game_dd5e.json';
-import useAbilities from './utils/useAbilities';
-import useSavingThrows from './utils/useSavingThrows';
-import useSkills from './utils/useSkills';
-import useProficiency from './utils/useProficiency';
+import {
+  useAbilities, useProficiency, useSavingThrows, useSkills,
+} from './utils/hooks';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
 import Mechanics from './Mechanics/Mechanics';

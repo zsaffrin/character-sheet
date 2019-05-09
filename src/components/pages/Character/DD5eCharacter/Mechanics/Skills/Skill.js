@@ -8,7 +8,7 @@ const Skill = ({ skill }) => {
   const StyledSkill = styled.div(({ theme }) => {
     const { colors, font } = theme;
     return `
-      color: ${proficient ? 'inherit' : colors.gray[5]};  
+      color: ${proficient ? 'inherit' : colors.gray[7]};  
       display: grid;
       font-style: ${proficient ? 'inherit' : 'italic'};
       font-weight: ${proficient ? font.weight.body.bold : 'inherit'};
