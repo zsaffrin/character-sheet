@@ -52,7 +52,7 @@ const DD5eCharacter = ({ character }) => {
       <Abilities abilities={abilities} />
       <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
       <div style={{ gridArea: 'combat' }}>combat</div>
-      <Actions weapons={weapons} />
+      <Actions abilities={abilities} weapons={weapons} />
       <Characteristics characteristics={character.characteristics} />
       <ListSection gridArea="features" title="Features & Traits" items={features} />
       <Equipment items={gear} />

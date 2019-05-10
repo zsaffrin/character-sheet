@@ -78,6 +78,7 @@
     "dagger": {
       "name": "Dagger",
       "type": "weapon",
+      "weaponCategory": "simple",
       "weaponType": "melee",
       "cost": 2,
       "damageDie": 4,
@@ -90,6 +91,8 @@
     "rapier": {
       "name": "Rapier",
       "type": "weapon",
+      "weaponCategory": "martial",
+      "weaponType": "melee",
       "cost": 25,
       "damageDie": 8,
       "damageDice": 1,

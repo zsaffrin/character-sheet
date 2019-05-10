@@ -6,4 +6,6 @@ export function modFormat(score) {
   return score >= 0 ? `+${score}` : score;
 }
 
-export function calcProficiencyBonus() {}
+export function higherVal(a, b) {
+  return a > b ? a : b;
+}
