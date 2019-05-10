@@ -68,37 +68,37 @@
   },
   "items": {
     "leatherArmor": {
+      "ac": 11,
+      "armorType": "light",
+      "cost": 10,
       "name": "Leather Armor",
       "type": "armor",
-      "cost": 10,
-      "armorType": "light",
-      "ac": 11,
       "weight": 10
     },
     "dagger": {
+      "cost": 2,
+      "damageDice": 1,
+      "damageDie": 4,
+      "damageType": "piercing",
       "name": "Dagger",
+      "properties": ["finesse", "light", "thrown"],
+      "range": "20/60",
       "type": "weapon",
       "weaponCategory": "simple",
       "weaponType": "melee",
-      "cost": 2,
-      "damageDie": 4,
-      "damageDice": 1,
-      "damageType": "piercing",
-      "weight": 1,
-      "properties": ["finesse", "light", "thrown"],
-      "range": "20/60"
+      "weight": 1
     },
     "rapier": {
+      "cost": 25,
+      "damageDice": 1,
+      "damageDie": 8,
+      "damageType": "piercing",
       "name": "Rapier",
+      "properties": ["finesse"],
       "type": "weapon",
       "weaponCategory": "martial",
       "weaponType": "melee",
-      "cost": 25,
-      "damageDie": 8,
-      "damageDice": 1,
-      "damageType": "piercing",
-      "weight": 2,
-      "properties": ["finesse"]
+      "weight": 2
     }
   },
   "races": {
