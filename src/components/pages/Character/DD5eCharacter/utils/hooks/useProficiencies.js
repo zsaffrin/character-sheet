@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const useProficiencies = (classDetails, charProfs) => {
+const useProficiencies = (charProfs) => {
   const [proficiencies, setProficiencies] = useState([]);
 
   useEffect(() => {
-    const classProfs = classDetails.reduce((acc, cd) => [...cd.proficiencies, ...acc], []);
-    const newProficiencies = [...classProfs, ...charProfs];
+    const newProficiencies = charProfs;
 
     setProficiencies(newProficiencies);
-  }, [classDetails]);
+  }, []);
 
   return proficiencies;
 };

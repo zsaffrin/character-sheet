@@ -48,7 +48,7 @@
         }
       },
       "savingThrows": ["dex", "cha"],
-      "startingProficiencies": ["lightArmor", "simpleWeapons"]
+      "proficiencies": ["lightArmor", "simpleWeapons"]
     },
     "cleric": {},
     "druid": {},
@@ -80,20 +80,18 @@
     }
   },
   "items": {
-    "leatherArmor": {
+    "Leather Armor": {
       "ac": 11,
       "armorType": "light",
       "cost": 10,
-      "name": "Leather Armor",
       "type": "armor",
       "weight": 10
     },
-    "dagger": {
+    "Dagger": {
       "cost": 2,
       "damageDice": 1,
       "damageDie": 4,
       "damageType": "piercing",
-      "name": "Dagger",
       "properties": {
         "finesse": true,
         "light": true,
@@ -105,12 +103,11 @@
       "weaponType": "melee",
       "weight": 1
     },
-    "rapier": {
+    "Rapier": {
       "cost": 25,
       "damageDice": 1,
       "damageDie": 8,
       "damageType": "piercing",
-      "name": "Rapier",
       "properties": { "finesse": true },
       "type": "weapon",
       "weaponCategory": "martial",
@@ -140,8 +137,14 @@
         }
       ],
       "choices": {
-        "languages": 1
-      }
+        "languages": 1,
+        "abilities": {
+          "scores": 2,
+          "amount": 1
+        },
+        "skillProficiencies": 2
+      },
+      "languages": ["Common", "Elvish"]
     },
     "halforc": {},
     "tiefling": {}

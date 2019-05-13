@@ -16,7 +16,7 @@ const useDD5eCharacter = (char, game) => {
 
   const race = useRace(char.race, game.races);
   const info = useInfo(char, game);
-  const features = useFeatures(char.background, game.backgrounds, game.features);
+  const features = useFeatures(char.background, game.backgrounds, race, game.features);
 
   const bonuses = useBonuses(race.bonuses, char.selectedBonuses);
 
@@ -27,8 +27,8 @@ const useDD5eCharacter = (char, game) => {
     game.classes,
     abilities,
   );
-  const proficiencies = useProficiencies(classDetails, char.proficiencies);
-  const skills = useSkills(game.skills, proficiencies, abilities, proficiencyBonus);
+  const proficiencies = useProficiencies(char.proficiencies);
+  const skills = useSkills(game.skills, proficiencies.skills, abilities, proficiencyBonus);
   const spells = useSpells(
     char.spellsKnown,
     game.spells,
@@ -38,18 +38,15 @@ const useDD5eCharacter = (char, game) => {
 
   useEffect(() => {
     const newCharacter = {
-      bonuses,
-      race,
-      info,
       abilities,
-      classDetails,
+      attacks,
+      features,
+      gear,
+      info,
+      proficiencies,
       proficiencyBonus,
       savingThrows,
-      proficiencies,
       skills,
-      features,
-      attacks,
-      gear,
       spells,
     };
 

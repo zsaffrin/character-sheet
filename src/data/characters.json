@@ -89,9 +89,43 @@
     "classLevels": {
       "bard": 1
     },
-    "gear": ["leatherArmor", "dagger", "rapier"],
+    "gear": [
+      "Rapier",
+      "Entertainers Pack",
+      "Instrument",
+      "Leather Armor",
+      "Dagger"
+    ],
     "maxHp": 8,
-    "proficiencies": ["acro", "ath", "ins", "med", "perc", "perf", "pers"],
+    "proficiencies": {
+      "armor": {
+        "light": { "sourceType": "Class", "source": "Bard" }
+      },
+      "skills": {
+        "acro": { "sourceType": "Race", "source": "Half-Elf" },
+        "ath": { "sourceType": "Race", "source": "Half-Elf" },
+        "ins": { "sourceType": "Class", "source": "Bard" },
+        "med": { "sourceType": "Class", "source": "Bard" },
+        "perc": { "sourceType": "Class", "source": "Bard" },
+        "perf": { "sourceType": "", "source": "" },
+        "pers": { "sourceType": "", "source": "" }
+      },
+      "languages": {
+        "Giant": { "sourceType": "Race", "source": "Half-Elf" }
+      },
+      "tools": {
+        "Instrument1": { "sourceType": "Class", "source": "Bard" },
+        "Instrument2": { "sourceType": "Class", "source": "Bard" },
+        "Instrument3": { "sourceType": "Class", "source": "Bard" }
+      },
+      "weapons": {
+        "simple": { "sourceType": "Class", "source": "Bard" },
+        "handcb": { "sourceType": "Class", "source": "Bard" },
+        "longswords": { "sourceType": "Class", "source": "Bard" },
+        "rapiers": { "sourceType": "Class", "source": "Bard" },
+        "shortswords": { "sourceType": "Class", "source": "Bard" }
+      }
+    },
     "race": "halfelf",
     "selectedBonuses": [
       {

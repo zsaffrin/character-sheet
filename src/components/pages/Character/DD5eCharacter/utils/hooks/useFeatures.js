@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-const useFeatures = (background, backgroundsData, featuresData) => {
-  const [backgroundFeatures, setBackgroundFeatures] = useState([]);
+const useFeatures = (background, backgroundsData, race, featuresData) => {
+  const [features, setFeatures] = useState([]);
 
   useEffect(() => {
-    const newBackgroundFeatures = backgroundsData[background].features.reduce((acc, feature) => {
+    const backgroundFeatures = backgroundsData[background].features.reduce((acc, feature) => {
       const newFeature = Object.assign(featuresData[feature], {
         name: feature,
         sourceType: 'background',
@@ -12,10 +12,22 @@ const useFeatures = (background, backgroundsData, featuresData) => {
       });
       return [newFeature, ...acc];
     }, []);
-    setBackgroundFeatures(newBackgroundFeatures);
-  }, []);
 
-  return [...backgroundFeatures];
+    const raceFeatures = race.features
+      ? race.features.reduce((acc, feature) => {
+        const newFeature = Object.assign(featuresData[feature], {
+          name: feature,
+          sourceType: 'race',
+          source: race.name,
+        });
+        return [newFeature, ...acc];
+      }, [])
+      : [];
+
+    setFeatures([...backgroundFeatures, ...raceFeatures]);
+  }, [race]);
+
+  return features;
 };
 
 export default useFeatures;

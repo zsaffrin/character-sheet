@@ -8,7 +8,7 @@ const useSkills = (skillData, proficiencies, abilities, proficiencyBonus) => {
     const newSkills = Object.keys(skillData).reduce((obj, key) => {
       const { abilityKey, name } = skillData[key];
 
-      const proficient = proficiencies.indexOf(key) >= 0;
+      const proficient = proficiencies && key in proficiencies;
 
       const abilityMod = abilities[abilityKey] ? abilities[abilityKey].mod : 0;
 
@@ -30,7 +30,7 @@ const useSkills = (skillData, proficiencies, abilities, proficiencyBonus) => {
     }, {});
 
     setSkills(newSkills);
-  }, [abilities]);
+  }, [abilities, proficiencies]);
 
   return skills;
 };

@@ -7,13 +7,21 @@ const useGear = (charGear, gameItems, abilities) => {
   const [totalWeight, setTotalWeight] = useState(0);
 
   useEffect(() => {
-    const newGear = charGear.reduce((acc, key) => [gameItems[key], ...acc], []);
+    const newGear = charGear.reduce((acc, key) => {
+      const newItem = Object.assign(gameItems[key] || {}, {
+        name: key,
+      });
+      return [newItem, ...acc];
+    }, []);
 
     setAllGear(newGear);
   }, []);
 
   useEffect(() => {
-    const newWeight = allGear.reduce((total, item) => total + item.weight, 0);
+    const newWeight = allGear.reduce(
+      (total, item) => (item.weight ? total + item.weight : total),
+      0,
+    );
 
     setTotalWeight(newWeight);
   }, [allGear]);

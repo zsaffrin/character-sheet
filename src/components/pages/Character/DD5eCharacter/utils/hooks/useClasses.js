@@ -11,18 +11,28 @@ const useClasses = (classLevels, classes, abilities) => {
     const savingThrows = Object.keys(classLevels).reduce((acc, classKey) => {
       const classSaves = classes[classKey].savingThrows;
       const newThrows = classSaves.reduce(
-        (newSavingThrows, save) => (newSavingThrows.indexOf(save) < 0 ? [save, ...newSavingThrows] : newSavingThrows),
+        (newSavingThrows, save) => (newSavingThrows.indexOf(save) < 0
+          ? [
+            {
+              key: save,
+              source: classKey,
+              sourceType: 'Class',
+            },
+            ...newSavingThrows,
+          ]
+          : newSavingThrows),
         [],
       );
 
       return [...newThrows, ...acc];
     }, []);
 
-    const newSaves = savingThrows.reduce((obj, key) => {
+    const newSaves = savingThrows.reduce((obj, savingThrow) => {
+      const { key } = savingThrow;
       const { name, mod } = abilities[key] || {};
 
       return Object.assign(obj, {
-        [key]: { name, mod },
+        [key]: Object.assign(savingThrow, { name, mod }),
       });
     }, {});
 
@@ -56,7 +66,7 @@ const useClasses = (classLevels, classes, abilities) => {
         key,
         name: classes[key].name,
         level: classLevels[key],
-        proficiencies: classes[key].startingProficiencies,
+        proficiencies: classes[key].proficiencies,
       });
       return [newDetail, ...acc];
     }, []);
