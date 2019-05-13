@@ -9,7 +9,3 @@ export function modFormat(score) {
 export function higherVal(a, b) {
   return a > b ? a : b;
 }
-
-export function totalBonusAmount(bonuses) {
-  return bonuses.reduce((acc, bonus) => acc + bonus.amount, 0);
-}

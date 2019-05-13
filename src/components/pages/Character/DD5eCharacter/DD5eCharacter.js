@@ -1,67 +1,50 @@
 import React from 'react';
-import { shape } from 'prop-types';
 import styled from 'styled-components';
 
 import game from '../../../../data/game_dd5e.json';
-import {
-  useAbilities,
-  useProficiency,
-  useSavingThrows,
-  useSkills,
-  useFeatures,
-  useGear,
-} from './utils/hooks';
-import { ListSection } from './shared';
-import Info from './Info/Info';
-import Abilities from './Abilities/Abilities';
-import Mechanics from './Mechanics/Mechanics';
-import Actions from './Actions/Actions';
-import Characteristics from './Characteristics/Characteristics';
-import Equipment from './Equipment/Equipment';
-import Proficiencies from './Proficiencies/Proficiencies';
+import Box from './shared/Box';
+import useDD5eCharacter from './utils/hooks/useDD5eCharacter';
 
 const DD5eCharacter = ({ character }) => {
-  const abilities = useAbilities(character, game);
-  const saves = useSavingThrows(character, game, abilities);
-  const proficiencyBonus = useProficiency(character, game);
-  const skills = useSkills(character, game, abilities, proficiencyBonus);
-  const features = useFeatures(character, game);
-  const { gear, weapons } = useGear(character.gear, game.items);
+  const { character: C } = useDD5eCharacter(character, game);
+  console.info(C);
 
-  const Layout = styled.div(({ theme }) => {
+  const PageLayout = styled.div(({ theme }) => {
     const { colors, font, space } = theme;
     return `
       color: ${colors.orange[8]};
       display: grid;
       font-size: ${font.size.normal};
       grid-gap: ${space.md};
-      grid-template-columns: repeat(2, auto) repeat(2, 1fr);
-      grid-template-rows: auto repeat(3, 1fr);
       grid-template-areas:
         'info info info info'
-        'abilities mechanics combat characteristics'
-        'abilities mechanics actions features'
+        'abilities inspiration combat characteristics'
+        'abilities proficiencyBonus combat characteristics'
+        'abilities saves attacks features'
+        'abilities skills attacks features'
+        'passiveWisdom passiveWisdom equipment features'
         'proficiencies proficiencies equipment features';
       height: 100%;
     `;
   });
 
   return (
-    <Layout>
-      <Info character={character} game={game} />
-      <Abilities abilities={abilities} />
-      <Mechanics saves={saves} skills={skills} proficiency={proficiencyBonus} />
-      <div style={{ gridArea: 'combat' }}>combat</div>
-      <Actions abilities={abilities} weapons={weapons} />
-      <Characteristics characteristics={character.characteristics} />
-      <ListSection gridArea="features" title="Features & Traits" items={features} />
-      <Equipment items={gear} />
-      <Proficiencies />
-    </Layout>
+    <PageLayout>
+      <Box gridArea="info" title="Info" />
+      <Box gridArea="abilities" title="Abilities" />
+      <Box gridArea="inspiration" title="Inspiration" />
+      <Box gridArea="proficiencyBonus" title="Proficiency Bonus" />
+      <Box gridArea="saves" title="Saving Throws" />
+      <Box gridArea="skills" title="Skills" />
+      <Box gridArea="passiveWisdom" title="Passive Wisdom" />
+      <Box gridArea="proficiencies" title="Proficiencies" />
+      <Box gridArea="combat" title="Combat" />
+      <Box gridArea="attacks" title="Attacks & Spellcasting" />
+      <Box gridArea="equipment" title="Equipment" />
+      <Box gridArea="characteristics" title="Characteristics" />
+      <Box gridArea="features" title="Features & Traits" />
+    </PageLayout>
   );
-};
-DD5eCharacter.propTypes = {
-  character: shape({}).isRequired,
 };
 
 export default DD5eCharacter;

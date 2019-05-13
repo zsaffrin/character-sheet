@@ -93,10 +93,21 @@
     "maxHp": 8,
     "proficiencies": ["acro", "ath", "ins", "med", "perc", "perf", "pers"],
     "race": "halfelf",
-    "racialBonuses": [
-      { "bonusType": "abilDex", "bonus": 1 },
-      { "bonusType": "abilCon", "bonus": 1 }
+    "selectedBonuses": [
+      {
+        "type": "ability",
+        "affects": "dex",
+        "amount": 1,
+        "desc": "Racial Bonus Choice (Half-Elf)"
+      },
+      {
+        "type": "ability",
+        "affects": "con",
+        "amount": 1,
+        "desc": "Racial Bonus Choice (Half-Elf)"
+      }
     ],
+    "spellsKnown": ["Vicious Mockery"],
     "xp": []
   }
 }

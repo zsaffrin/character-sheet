@@ -1,39 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Box = ({
-  children, compact, title, titleSize,
-}) => {
-  const StyledBox = styled.div(({ theme }) => {
+const Box = ({ gridArea, children, title }) => {
+  const OutsideWrap = styled.div(({ theme }) => {
     const { boxRadius, colors } = theme;
     return `
       border: 1px solid ${colors.orange[1]};
       border-radius: ${boxRadius};
       display: grid;
-      grid-template-columns: ${compact ? 'auto 1fr' : 'none'}
-      grid-template-rows: min-content;
+      ${gridArea && `grid-area: ${gridArea};`}
+      grid-template-rows: 1fr auto;
     `;
   });
-  const BoxTitle = styled.div(({ theme }) => {
+  const Title = styled.div(({ theme }) => {
     const { colors, font, space } = theme;
     return `
-      align-items: center;  
       background: ${colors.orange[1]};
-      display: ${compact ? 'grid' : 'block'};
-      font-size: ${titleSize ? font.size[titleSize] : 'inherit'};
-      font-weight: ${font.weight.body.bold};
-      order: ${compact ? '1' : '0'};
+      font-size: ${font.size.sm};
+      font-weight: ${font.weight.body.black};
       padding: ${space.thin} ${space.md};
       text-align: center;
       text-transform: uppercase;
     `;
   });
+  const Content = styled.div(({ theme }) => {
+    const { space } = theme;
+    return `
+      padding: ${space.sm};
+    `;
+  });
 
   return (
-    <StyledBox>
-      {title && <BoxTitle>{title}</BoxTitle>}
-      <div>{children}</div>
-    </StyledBox>
+    <OutsideWrap>
+      <Content>{children}</Content>
+      {title && <Title>{title}</Title>}
+    </OutsideWrap>
   );
 };
 
