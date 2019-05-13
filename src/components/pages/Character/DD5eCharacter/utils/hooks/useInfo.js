@@ -17,10 +17,10 @@ const useInfo = (characterData, gameData) => {
 
     const newInfo = {
       name,
-      race: raceDetail,
+      race: raceDetail.name,
       classes: classString,
       alignment,
-      background: backgroundDetail,
+      background: backgroundDetail.name,
       xp: totalXp,
     };
 
