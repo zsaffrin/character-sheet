@@ -5,6 +5,7 @@ import game from '../../../../data/game_dd5e.json';
 import Box from './shared/Box';
 import useDD5eCharacter from './utils/hooks/useDD5eCharacter';
 import Info from './Info/Info';
+import Abilities from './Abilities/Abilities';
 
 const DD5eCharacter = ({ character }) => {
   const { character: C } = useDD5eCharacter(character, game);
@@ -25,15 +26,16 @@ const DD5eCharacter = ({ character }) => {
         'abilities skills attacks features'
         'passiveWisdom passiveWisdom equipment features'
         'proficiencies proficiencies equipment features';
+      grid-template-columns: min-content;
       grid-template-rows: min-content;
-      height: 100%;
+      min-height: 100%;
     `;
   });
 
   return (
     <PageLayout>
       <Info data={C.info} />
-      <Box gridArea="abilities" title="Abilities" />
+      <Abilities data={C.abilities} />
       <Box gridArea="inspiration" title="Inspiration" />
       <Box gridArea="proficiencyBonus" title="Proficiency Bonus" />
       <Box gridArea="saves" title="Saving Throws" />
