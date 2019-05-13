@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Box = ({ gridArea, children, title }) => {
+const Box = ({
+  gridArea, children, textAlign, title, titleTop = false,
+}) => {
   const OutsideWrap = styled.div(({ theme }) => {
     const { boxRadius, colors } = theme;
     return `
@@ -9,7 +11,9 @@ const Box = ({ gridArea, children, title }) => {
       border-radius: ${boxRadius};
       display: grid;
       ${gridArea && `grid-area: ${gridArea};`}
-      grid-template-rows: 1fr auto;
+      grid-template-rows: 1fr min-content;
+      grid-template-rows: ${titleTop ? 'auto 1fr' : '1fr auto'};
+      ${textAlign && `text-align: ${textAlign};`}
     `;
   });
   const Title = styled.div(({ theme }) => {
@@ -21,11 +25,13 @@ const Box = ({ gridArea, children, title }) => {
       padding: ${space.thin} ${space.md};
       text-align: center;
       text-transform: uppercase;
+      ${titleTop && 'grid-row: 1;'}
     `;
   });
   const Content = styled.div(({ theme }) => {
     const { space } = theme;
     return `
+      display: grid;
       padding: ${space.sm};
     `;
   });
