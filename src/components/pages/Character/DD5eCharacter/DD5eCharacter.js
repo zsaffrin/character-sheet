@@ -6,6 +6,7 @@ import Box from './shared/Box';
 import useDD5eCharacter from './utils/hooks/useDD5eCharacter';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
+import SavingThrows from './SavingThrows/SavingThrows';
 
 const DD5eCharacter = ({ character }) => {
   const { character: C } = useDD5eCharacter(character, game);
@@ -38,7 +39,7 @@ const DD5eCharacter = ({ character }) => {
       <Abilities data={C.abilities} />
       <Box gridArea="inspiration" title="Inspiration" />
       <Box gridArea="proficiencyBonus" title="Proficiency Bonus" />
-      <Box gridArea="saves" title="Saving Throws" />
+      <SavingThrows data={C.savingThrows} />
       <Box gridArea="skills" title="Skills" />
       <Box gridArea="passiveWisdom" title="Passive Wisdom" />
       <Box gridArea="proficiencies" title="Proficiencies" />
