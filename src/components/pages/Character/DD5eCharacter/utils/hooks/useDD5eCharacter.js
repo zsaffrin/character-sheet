@@ -14,6 +14,8 @@ import useProficiencies from './useProficiencies';
 const useDD5eCharacter = (char, game) => {
   const [character, setCharacter] = useState({});
 
+  const { characteristics } = char;
+
   const race = useRace(char.race, game.races);
   const info = useInfo(char, game);
   const features = useFeatures(char.background, game.backgrounds, race, game.features);
@@ -40,6 +42,7 @@ const useDD5eCharacter = (char, game) => {
     const newCharacter = {
       abilities,
       attacks,
+      characteristics,
       features,
       gear,
       info,

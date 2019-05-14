@@ -8,6 +8,10 @@ import Box from '../shared/Box';
 const AbilityTile = ({ ability }) => {
   const { name, mod, score = {} } = ability;
 
+  const InnerLayout = styled.div`
+    display: grid;
+    align-items: center;
+  `;
   const Score = styled.div(({ theme }) => {
     const { font } = theme;
     return `
@@ -25,8 +29,10 @@ const AbilityTile = ({ ability }) => {
 
   return (
     <Box textAlign="center" title={name} titleTop>
-      <Score>{score.total || 0}</Score>
-      <Mod>{modFormat(mod)}</Mod>
+      <InnerLayout>
+        <Score>{score.total || 0}</Score>
+        <Mod>{modFormat(mod)}</Mod>
+      </InnerLayout>
     </Box>
   );
 };

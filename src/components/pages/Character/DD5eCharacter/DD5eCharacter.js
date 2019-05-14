@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import game from '../../../../data/game_dd5e.json';
 import Box from './shared/Box';
+import ListSection from './shared/ListSection';
 import useDD5eCharacter from './utils/hooks/useDD5eCharacter';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
 import SavingThrows from './SavingThrows/SavingThrows';
 import Skills from './Skills/Skills';
+import Characteristics from './Characteristics/Characteristics';
 
 const DD5eCharacter = ({ character }) => {
   const { character: C } = useDD5eCharacter(character, game);
@@ -47,8 +49,8 @@ const DD5eCharacter = ({ character }) => {
       <Box gridArea="combat" title="Combat" />
       <Box gridArea="attacks" title="Attacks & Spellcasting" />
       <Box gridArea="equipment" title="Equipment" />
-      <Box gridArea="characteristics" title="Characteristics" />
-      <Box gridArea="features" title="Features & Traits" />
+      <Characteristics data={C.characteristics} />
+      <ListSection gridArea="features" title="Features & Traits" items={C.features} />
     </PageLayout>
   );
 };

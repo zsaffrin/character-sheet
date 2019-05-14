@@ -68,11 +68,11 @@
     },
     "Darkvision": {
       "description": "You can see in dim light within 60 feet of you as if it were bright light, and darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
-      "desc": "You can see in the dark for 60 feet"
+      "desc": "You can see in dim light within 60 feet of you as if it were bright light, and darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
     },
     "Fey Ancestry": {
       "description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
-      "desc": "Advantage on saves vs charm effects, immune to magic sleep."
+      "desc": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
     },
     "Spellcasting": {
       "description": "You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music. Your Spells are part of your vast repertoire, magic that you can tune to different situations.",
