@@ -2,6 +2,7 @@ import React from 'react';
 import { shape } from 'prop-types';
 import styled from 'styled-components';
 
+import { modFormat } from '../utils/characterUtils';
 import Box from '../shared/Box';
 import ScoreRow from '../shared/ScoreRow';
 
@@ -21,7 +22,7 @@ const SavingThrows = ({ data }) => {
       <SectionLayout>
         {Object.keys(data).map((key) => {
           const { name, mod } = data[key];
-          return <ScoreRow label={name} score={mod} key={key} />;
+          return <ScoreRow label={name} score={modFormat(mod)} key={key} />;
         })}
       </SectionLayout>
     </Box>
