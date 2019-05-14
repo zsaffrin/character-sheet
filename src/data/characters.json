@@ -66,23 +66,23 @@
     "characteristics": {
       "bonds": [
         {
-          "desc": "Bond. Character bond."
+          "desc": "Carries a custom-designed Viol. The body and neck are adorned with a myriad of interwoven symbols and carvings, signatures of places in which he has performed and people he has met. He values the history represented by this instrument and his primary performance style depends on it, as such he is protective of it."
         }
       ],
       "flaws": [
         {
-          "desc": "Far, I mean FAR, too good-looking"
+          "desc": "While his demeanor and approach are typically constructive and diplomatic, his subject matter can be sometimes controvertial or perceived as confrontational, which sometimes causes friction with authority figures or those in his spotlight."
         }
       ],
       "ideals": [
         {
-          "name": "Altruism",
-          "desc": "It is the duty of the capable to defend the helpless"
+          "name": "Herald",
+          "desc": "Be a voice for the voiceless and the unheard"
         }
       ],
       "personalityTraits": [
         {
-          "desc": "My milkshake brings all the boys to the yard"
+          "desc": "Performs a notable song style, the dual tones of his custom Viol and register of his voice creating a recognizable 1-man 3-part harmony. His skill in this style is well-known and liked, and he uses this notoriety to bring attention to disfavor or injustices he perceives."
         }
       ]
     },
@@ -90,11 +90,17 @@
       "bard": 1
     },
     "gear": [
-      "Rapier",
-      "Entertainers Pack",
-      "Instrument",
-      "Leather Armor",
-      "Dagger"
+      { "item": "Backpack", "qty": 1 },
+      { "item": "Bedroll", "qty": 1 },
+      { "item": "Candle", "qty": 5 },
+      { "item": "Costume", "qty": 2 },
+      { "item": "Disguise Kit", "qty": 1 },
+      { "item": "Dagger", "qty": 1 },
+      { "item": "Viol", "qty": 1 },
+      { "item": "Leather Armor", "qty": 1 },
+      { "item": "Rapier", "qty": 1 },
+      { "item": "Rations", "qty": 5 },
+      { "item": "Waterskin", "qty": 1 }
     ],
     "maxHp": 8,
     "proficiencies": {
@@ -141,7 +147,12 @@
         "desc": "Racial Bonus Choice (Half-Elf)"
       }
     ],
-    "spellsKnown": ["Vicious Mockery"],
+    "spellsKnown": [
+      "Vicious Mockery",
+      "Prestidigitation",
+      "Cure Wounds",
+      "Sleep"
+    ],
     "xp": []
   }
 }

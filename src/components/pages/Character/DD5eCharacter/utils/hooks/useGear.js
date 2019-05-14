@@ -7,9 +7,10 @@ const useGear = (charGear, gameItems, abilities) => {
   const [totalWeight, setTotalWeight] = useState(0);
 
   useEffect(() => {
-    const newGear = charGear.reduce((acc, key) => {
-      const newItem = Object.assign(gameItems[key] || {}, {
-        name: key,
+    const newGear = charGear.reduce((acc, cg) => {
+      const { item, qty } = cg;
+      const newItem = Object.assign(gameItems[item] || {}, {
+        name: qty > 1 ? `${item} x${qty}` : item,
       });
       return [newItem, ...acc];
     }, []);
@@ -31,18 +32,18 @@ const useGear = (charGear, gameItems, abilities) => {
     const newAttacks = justWeapons.reduce(
       (acc, weapon) => {
         const {
-          damageDice, damageDie, damageType, name, properties, range, weaponType,
+          damageDice, damageDie, name, properties, range, weaponType,
         } = weapon;
         const attack = {
           name,
           bonusDetail: [],
-          damage: `${damageDice}d${damageDie} ${damageType}`,
+          damage: `${damageDice}d${damageDie}`,
         };
         if (properties.finesse) {
           const mod = higherVal(abilities.str.mod, abilities.dex.mod);
           attack.bonusDetail.push({
             amount: mod,
-            desc: 'Higher of STR/DEX (Finesse)',
+            desc: 'Higher of STR/DEX (Finesse Weapon)',
           });
         } else {
           if (weaponType === 'melee') {
@@ -58,6 +59,7 @@ const useGear = (charGear, gameItems, abilities) => {
         if (properties.thrown) {
           const thrownAttack = {
             name: `${attack.name} (Thrown)`,
+            bonus: attack.bonus,
             bonusDetail: attack.bonusDetail,
             damage: attack.damage,
             range,

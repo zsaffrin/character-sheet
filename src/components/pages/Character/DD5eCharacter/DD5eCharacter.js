@@ -10,6 +10,8 @@ import Abilities from './Abilities/Abilities';
 import SavingThrows from './SavingThrows/SavingThrows';
 import Skills from './Skills/Skills';
 import Characteristics from './Characteristics/Characteristics';
+import Equipment from './Equipment/Equipment';
+import Actions from './Actions/Actions';
 
 const DD5eCharacter = ({ character }) => {
   const { character: C } = useDD5eCharacter(character, game);
@@ -26,11 +28,11 @@ const DD5eCharacter = ({ character }) => {
         'info info info info'
         'abilities inspiration combat characteristics'
         'abilities proficiencyBonus combat characteristics'
-        'abilities saves attacks features'
-        'abilities skills attacks features'
+        'abilities saves actions features'
+        'abilities skills actions features'
         'passiveWisdom passiveWisdom equipment features'
         'proficiencies proficiencies equipment features';
-      grid-template-columns: min-content;
+      grid-template-columns: auto auto 1fr 1fr;
       grid-template-rows: min-content;
       min-height: 100%;
     `;
@@ -47,8 +49,8 @@ const DD5eCharacter = ({ character }) => {
       <Box gridArea="passiveWisdom" title="Passive Wisdom" />
       <Box gridArea="proficiencies" title="Proficiencies" />
       <Box gridArea="combat" title="Combat" />
-      <Box gridArea="attacks" title="Attacks & Spellcasting" />
-      <Box gridArea="equipment" title="Equipment" />
+      <Actions attacks={C.attacks} spells={C.spells} />
+      <Equipment data={C.gear} />
       <Characteristics data={C.characteristics} />
       <ListSection gridArea="features" title="Features & Traits" items={C.features} />
     </PageLayout>

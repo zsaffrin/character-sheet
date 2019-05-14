@@ -14,7 +14,7 @@ const Characteristics = ({ data }) => {
     return `
       grid-area: characteristics;
       display: grid;
-      grid-gap: ${space.sm};
+      grid-gap: ${space.md};
     `;
   });
 
