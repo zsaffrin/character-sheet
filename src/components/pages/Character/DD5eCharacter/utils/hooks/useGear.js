@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react';
-import { higherVal, isProficient, totalBonusAmount } from '../characterUtils';
+import {
+  higherVal, isProficient, round, totalBonusAmount,
+} from '../characterUtils';
 
 const useGear = (charGear, gameItems, abilities, proficiencies, proficiencyBonus) => {
   const [allGear, setAllGear] = useState([]);
+  const [armorBonus, setArmorBonus] = useState([]);
   const [attacks, setAttacks] = useState({});
+  const [totalValue, setTotalValue] = useState(0);
   const [totalWeight, setTotalWeight] = useState(0);
 
   useEffect(() => {
     const newGear = charGear.reduce((acc, cg) => {
-      const { item, qty } = cg;
-      const newItem = Object.assign(gameItems[item] || {}, {
-        name: qty > 1 ? `${item} x${qty}` : item,
-      });
+      const {
+        customItem, gpItem, item, qty,
+      } = cg;
+
+      let newItem = {};
+      if (customItem || gpItem) {
+        newItem = cg;
+      } else {
+        newItem = Object.assign(gameItems[item] || {}, {
+          name: qty > 1 ? `${item} x${qty}` : item,
+        });
+      }
+
       return [newItem, ...acc];
     }, []);
 
@@ -25,6 +38,18 @@ const useGear = (charGear, gameItems, abilities, proficiencies, proficiencyBonus
     );
 
     setTotalWeight(newWeight);
+  }, [allGear]);
+
+  useEffect(() => {
+    const newValue = allGear.reduce((total, item) => {
+      if (item.cost) {
+        return round(total) + round(item.cost);
+      }
+
+      return total;
+    }, 0);
+
+    setTotalValue(newValue);
   }, [allGear]);
 
   useEffect(() => {
@@ -110,11 +135,20 @@ const useGear = (charGear, gameItems, abilities, proficiencies, proficiencyBonus
     setAttacks(newAttacks);
   }, [allGear, proficiencyBonus]);
 
+  useEffect(() => {
+    const armorItem = allGear.filter(i => i.type === 'armor')[0];
+    const shield = allGear.filter(i => i.type === 'shield')[0];
+    const newArmorBonus = (armorItem ? armorItem.ac : 0) + (shield ? 2 : 0);
+    setArmorBonus(newArmorBonus);
+  }, [allGear]);
+
   return {
     gear: {
       items: allGear,
+      totalValue,
       totalWeight,
     },
+    armorBonus,
     attacks,
   };
 };

@@ -11,7 +11,6 @@ const Abilities = ({ data }) => {
     return `
       display: grid;
       grid-gap: ${space.md};
-      padding: ${space.sm};
     `;
   });
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useInfo = (characterData, gameData) => {
+const useInfo = (characterData, gameData, hd) => {
   const [info, setInfo] = useState({});
 
   useEffect(() => {

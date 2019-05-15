@@ -93,28 +93,35 @@
       { "item": "Backpack", "qty": 1 },
       { "item": "Bedroll", "qty": 1 },
       { "item": "Candle", "qty": 5 },
-      { "item": "Costume", "qty": 2 },
+      { "item": "Costume", "qty": 3 },
       { "item": "Disguise Kit", "qty": 1 },
       { "item": "Dagger", "qty": 1 },
       { "item": "Viol", "qty": 1 },
       { "item": "Leather Armor", "qty": 1 },
       { "item": "Rapier", "qty": 1 },
       { "item": "Rations", "qty": 5 },
-      { "item": "Waterskin", "qty": 1 }
+      { "item": "Waterskin", "qty": 1 },
+      { "customItem": true, "name": "[trinket]" },
+      { "gpItem": true, "name": "Pouch", "cost": 15 }
     ],
-    "maxHp": 8,
+    "maxHp": [
+      {
+        "amount": 10,
+        "desc": "Bard Starting HP: 8 + CON (+2)"
+      }
+    ],
     "proficiencies": {
       "armor": {
         "Light Armor": { "sourceType": "Class", "source": "Bard" }
       },
       "skills": {
-        "acro": { "sourceType": "Race", "source": "Half-Elf" },
+        "acro": { "sourceType": "Background", "source": "Entertainer" },
         "ath": { "sourceType": "Race", "source": "Half-Elf" },
         "ins": { "sourceType": "Class", "source": "Bard" },
         "med": { "sourceType": "Class", "source": "Bard" },
-        "perc": { "sourceType": "Class", "source": "Bard" },
-        "perf": { "sourceType": "", "source": "" },
-        "pers": { "sourceType": "", "source": "" }
+        "perc": { "sourceType": "Race", "source": "Half-Elf" },
+        "perf": { "sourceType": "Background", "source": "Entertainer" },
+        "pers": { "sourceType": "Class", "source": "Bard" }
       },
       "languages": {
         "Giant": { "sourceType": "Race", "source": "Half-Elf" }
@@ -122,7 +129,9 @@
       "tools": {
         "Viol": { "sourceType": "Class", "source": "Bard" },
         "Lute": { "sourceType": "Class", "source": "Bard" },
-        "Instrument3": { "sourceType": "Class", "source": "Bard" }
+        "Instrument3": { "sourceType": "Class", "source": "Bard" },
+        "Instrument4": { "sourceType": "Background", "source": "Entertainer" },
+        "Disguise Kit": { "sourceType": "Background", "source": "Entertainer" }
       },
       "weapons": {
         "Simple Weapons": { "sourceType": "Class", "source": "Bard" },

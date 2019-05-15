@@ -32,7 +32,7 @@ const Box = ({
     const { space } = theme;
     return `
       display: grid;
-      padding: ${space.sm};
+      padding: ${space.md};
     `;
   });
 

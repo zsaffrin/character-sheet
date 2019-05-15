@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import useAbilities from './useAbilities';
 import useBonuses from './useBonuses';
 import useClasses from './useClasses';
+import useCombat from './useCombat';
 import useFeatures from './useFeatures';
 import useGear from './useGear';
 import useInfo from './useInfo';
@@ -24,18 +25,21 @@ const useDD5eCharacter = (char, game) => {
   const bonuses = useBonuses(race.bonuses, char.selectedBonuses);
 
   const abilities = useAbilities(char.abilityScores, game.abilities, bonuses.ability);
-  const { classDetails, proficiencyBonus, saves: savingThrows } = useClasses(
+  const {
+    classDetails, hd, proficiencyBonus, saves: savingThrows,
+  } = useClasses(
     char.classLevels,
     game.classes,
     abilities,
   );
-  const { attacks, gear } = useGear(
+  const { armorBonus, attacks, gear } = useGear(
     char.gear,
     game.items,
     abilities,
     proficiencies,
     proficiencyBonus,
   );
+  const combat = useCombat(armorBonus, abilities, hd, char.maxHp, race);
   const skills = useSkills(game.skills, proficiencies.skills, abilities, proficiencyBonus);
   const spells = useSpells(
     char.spellsKnown,
@@ -49,6 +53,8 @@ const useDD5eCharacter = (char, game) => {
       abilities,
       attacks,
       characteristics,
+      classDetails,
+      combat,
       features,
       gear,
       info,

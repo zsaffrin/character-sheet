@@ -127,7 +127,6 @@
     "Leather Armor": {
       "ac": 11,
       "proficiencyCategory": "Light Armor",
-      "armorType": "light",
       "cost": 10,
       "type": "armor",
       "weight": 10

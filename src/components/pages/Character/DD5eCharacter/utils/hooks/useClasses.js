@@ -6,6 +6,7 @@ const useClasses = (classLevels, classes, abilities) => {
   const [saves, setSaves] = useState({});
   const [proficiencyBonus, setProficiencyBonus] = useState({});
   const [classDetails, setClassDetails] = useState([]);
+  const [hd, setHd] = useState(0);
 
   useEffect(() => {
     const savingThrows = Object.keys(classLevels).reduce((acc, classKey) => {
@@ -73,7 +74,15 @@ const useClasses = (classLevels, classes, abilities) => {
     setClassDetails(newClassDetails);
   }, []);
 
-  return { classDetails, proficiencyBonus, saves };
+  useEffect(() => {
+    const newHd = classDetails.reduce((acc, cd) => acc + cd.level, 0);
+
+    setHd(newHd);
+  }, [classDetails]);
+
+  return {
+    classDetails, hd, proficiencyBonus, saves,
+  };
 };
 
 export default useClasses;

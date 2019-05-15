@@ -12,7 +12,6 @@ const SavingThrows = ({ data }) => {
     return `
     display: grid;
     grid-gap: ${space.md};   
-    padding: ${space.sm};
     grid-auto-rows: min-content;
     `;
   });

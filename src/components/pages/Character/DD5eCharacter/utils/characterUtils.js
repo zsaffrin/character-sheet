@@ -26,3 +26,21 @@ export function isProficient(focus, proficiencies) {
     false,
   );
 }
+
+export function currency(amount) {
+  if (amount < 1) {
+    const sp = amount * 10;
+    if (sp < 1) {
+      const cp = sp * 10;
+      return `${cp} cp`;
+    }
+
+    return `${sp} sp`;
+  }
+
+  return `${Number(amount).toLocaleString()} gp`;
+}
+
+export function round(num) {
+  return parseInt(num * 100, 10) / 100;
+}
