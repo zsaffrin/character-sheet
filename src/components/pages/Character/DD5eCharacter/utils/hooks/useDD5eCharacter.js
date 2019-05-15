@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import useRace from './useRace';
-import useBonuses from './useBonuses';
-import useInfo from './useInfo';
 import useAbilities from './useAbilities';
+import useBonuses from './useBonuses';
 import useClasses from './useClasses';
-import useSkills from './useSkills';
 import useFeatures from './useFeatures';
 import useGear from './useGear';
-import useSpells from './useSpells';
+import useInfo from './useInfo';
 import useProficiencies from './useProficiencies';
+import useRace from './useRace';
+import useSkills from './useSkills';
+import useSpells from './useSpells';
 
 const useDD5eCharacter = (char, game) => {
   const [character, setCharacter] = useState({});
@@ -19,17 +19,23 @@ const useDD5eCharacter = (char, game) => {
   const race = useRace(char.race, game.races);
   const info = useInfo(char, game);
   const features = useFeatures(char.background, game.backgrounds, race, game.features);
+  const proficiencies = useProficiencies(char.proficiencies);
 
   const bonuses = useBonuses(race.bonuses, char.selectedBonuses);
 
   const abilities = useAbilities(char.abilityScores, game.abilities, bonuses.ability);
-  const { attacks, gear } = useGear(char.gear, game.items, abilities);
   const { classDetails, proficiencyBonus, saves: savingThrows } = useClasses(
     char.classLevels,
     game.classes,
     abilities,
   );
-  const proficiencies = useProficiencies(char.proficiencies);
+  const { attacks, gear } = useGear(
+    char.gear,
+    game.items,
+    abilities,
+    proficiencies,
+    proficiencyBonus,
+  );
   const skills = useSkills(game.skills, proficiencies.skills, abilities, proficiencyBonus);
   const spells = useSpells(
     char.spellsKnown,
@@ -54,7 +60,7 @@ const useDD5eCharacter = (char, game) => {
     };
 
     setCharacter(newCharacter);
-  }, [info, abilities, proficiencies, skills, proficiencyBonus, savingThrows, classDetails]);
+  }, [abilities, classDetails, info, proficiencies, proficiencyBonus, savingThrows, skills]);
 
   return { character };
 };

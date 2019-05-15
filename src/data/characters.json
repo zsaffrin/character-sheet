@@ -105,7 +105,7 @@
     "maxHp": 8,
     "proficiencies": {
       "armor": {
-        "light": { "sourceType": "Class", "source": "Bard" }
+        "Light Armor": { "sourceType": "Class", "source": "Bard" }
       },
       "skills": {
         "acro": { "sourceType": "Race", "source": "Half-Elf" },
@@ -120,16 +120,16 @@
         "Giant": { "sourceType": "Race", "source": "Half-Elf" }
       },
       "tools": {
-        "Instrument1": { "sourceType": "Class", "source": "Bard" },
-        "Instrument2": { "sourceType": "Class", "source": "Bard" },
+        "Viol": { "sourceType": "Class", "source": "Bard" },
+        "Lute": { "sourceType": "Class", "source": "Bard" },
         "Instrument3": { "sourceType": "Class", "source": "Bard" }
       },
       "weapons": {
-        "simple": { "sourceType": "Class", "source": "Bard" },
-        "handcb": { "sourceType": "Class", "source": "Bard" },
-        "longswords": { "sourceType": "Class", "source": "Bard" },
-        "rapiers": { "sourceType": "Class", "source": "Bard" },
-        "shortswords": { "sourceType": "Class", "source": "Bard" }
+        "Simple Weapons": { "sourceType": "Class", "source": "Bard" },
+        "Hand Crossbow": { "sourceType": "Class", "source": "Bard" },
+        "Longsword": { "sourceType": "Class", "source": "Bard" },
+        "Rapier": { "sourceType": "Class", "source": "Bard" },
+        "Shortsword": { "sourceType": "Class", "source": "Bard" }
       }
     },
     "race": "halfelf",

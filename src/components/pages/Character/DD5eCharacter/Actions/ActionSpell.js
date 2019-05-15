@@ -9,13 +9,9 @@ const ActionSpell = ({ entries }) => {
   const Centered = styled.div`
     text-align: center;
   `;
-  const Save = styled(Centered)(({ theme }) => {
-    const { font } = theme;
-    return `
-      font-size: ${font.size.sm};
-      text-transform: uppercase;
-    `;
-  });
+  const Uppercase = styled(Centered)`
+    text-transform: uppercase;
+  `;
 
   return (
     <>
@@ -39,7 +35,7 @@ const ActionSpell = ({ entries }) => {
           <div>{name}</div>
           <Centered>{modFormat(castBonus)}</Centered>
           <Centered>{castingTime}</Centered>
-          <Save>{save}</Save>
+          <Uppercase>{save}</Uppercase>
           <Centered>{dc}</Centered>
         </Fragment>
       ))}

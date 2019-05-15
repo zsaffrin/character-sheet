@@ -114,7 +114,7 @@
       },
       "range": "20/60",
       "type": "weapon",
-      "weaponCategory": "simple",
+      "proficiencyCategory": "Simple Weapons",
       "weaponType": "melee",
       "weight": 1
     },
@@ -126,6 +126,7 @@
     },
     "Leather Armor": {
       "ac": 11,
+      "proficiencyCategory": "Light Armor",
       "armorType": "light",
       "cost": 10,
       "type": "armor",
@@ -138,7 +139,6 @@
       "damageType": "piercing",
       "properties": { "finesse": true },
       "type": "weapon",
-      "weaponCategory": "martial",
       "weaponType": "melee",
       "weight": 2
     },

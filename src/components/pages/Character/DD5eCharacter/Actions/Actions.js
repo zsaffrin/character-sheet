@@ -10,14 +10,15 @@ const Actions = ({ attacks, spells }) => {
     const { space } = theme;
     return `
       display: grid;
-      grid-gap: ${space.md};
+      grid-gap: ${space.xl};
+      grid-auto-rows: min-content;
     `;
   });
   return (
     <Box gridArea="actions" title="Actions">
       <SectionLayout>
-        <ActionCategory title="Melee Attacks" entries={attacks.melee} type="attack" />
-        <ActionCategory title="Ranged Attacks" entries={attacks.ranged} type="attack" />
+        <ActionCategory title="Melee Attacks" entries={attacks.melee} type="melee" />
+        <ActionCategory title="Ranged Attacks" entries={attacks.ranged} type="ranged" />
         <ActionCategory title="Cantrips" entries={spells.cantrips} type="spell" />
         <ActionCategory title="Spells" entries={spells.spells} type="spell" />
       </SectionLayout>

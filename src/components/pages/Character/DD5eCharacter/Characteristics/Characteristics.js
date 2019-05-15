@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import ListSection from '../shared/ListSection';
 
-const Characteristics = ({ data }) => {
+const Characteristics = ({ data, features }) => {
   const {
     bonds, flaws, ideals, personalityTraits,
   } = data;
@@ -24,6 +24,7 @@ const Characteristics = ({ data }) => {
       <ListSection title="Ideals" items={ideals} />
       <ListSection title="Bonds" items={bonds} />
       <ListSection title="Flaws" items={flaws} />
+      <ListSection title="Features & Traits" items={features} />
     </Layout>
   );
 };

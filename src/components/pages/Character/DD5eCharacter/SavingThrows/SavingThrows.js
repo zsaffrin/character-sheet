@@ -18,7 +18,7 @@ const SavingThrows = ({ data }) => {
   });
 
   return (
-    <Box gridArea="saves" title="Saving Throws">
+    <Box title="Saving Throws">
       <SectionLayout>
         {Object.keys(data).map((key) => {
           const { name, mod } = data[key];

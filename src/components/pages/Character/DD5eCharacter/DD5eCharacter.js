@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import game from '../../../../data/game_dd5e.json';
 import Box from './shared/Box';
-import ListSection from './shared/ListSection';
+import SingleScoreSection from './shared/SingleScoreSection';
 import useDD5eCharacter from './utils/hooks/useDD5eCharacter';
 import Info from './Info/Info';
 import Abilities from './Abilities/Abilities';
@@ -12,6 +12,7 @@ import Skills from './Skills/Skills';
 import Characteristics from './Characteristics/Characteristics';
 import Equipment from './Equipment/Equipment';
 import Actions from './Actions/Actions';
+import Proficiencies from './Proficiencies/Proficiencies';
 
 const DD5eCharacter = ({ character }) => {
   const { character: C } = useDD5eCharacter(character, game);
@@ -26,15 +27,19 @@ const DD5eCharacter = ({ character }) => {
       grid-gap: ${space.md};
       grid-template-areas:
         'info info info info'
-        'abilities inspiration combat characteristics'
-        'abilities proficiencyBonus combat characteristics'
-        'abilities saves actions features'
-        'abilities skills actions features'
-        'passiveWisdom passiveWisdom equipment features'
-        'proficiencies proficiencies equipment features';
-      grid-template-columns: auto auto 1fr 1fr;
+        'abilities singlescores combat characteristics'
+        'abilities skills actions characteristics'
+        'proficiencies proficiencies equipment characteristics';
+      grid-template-columns: auto auto 1fr minmax(min-content, 25%);
       grid-template-rows: min-content;
       min-height: 100%;
+    `;
+  });
+  const SectionLayout = styled.div(({ theme }) => {
+    const { space } = theme;
+    return `
+      display: grid;
+      grid-gap: ${space.md};
     `;
   });
 
@@ -42,17 +47,22 @@ const DD5eCharacter = ({ character }) => {
     <PageLayout>
       <Info data={C.info} />
       <Abilities data={C.abilities} />
-      <Box gridArea="inspiration" title="Inspiration" />
-      <Box gridArea="proficiencyBonus" title="Proficiency Bonus" />
-      <SavingThrows data={C.savingThrows} />
+      <SectionLayout style={{ gridArea: 'singlescores' }}>
+        <SingleScoreSection title="Inspiration" mod />
+        <SingleScoreSection
+          title="Proficiency Bonus"
+          score={C.proficiencyBonus && C.proficiencyBonus.total}
+          mod
+        />
+        <SingleScoreSection title="Passive Wisdom" mod />
+        <SavingThrows data={C.savingThrows} />
+      </SectionLayout>
       <Skills data={C.skills} />
-      <Box gridArea="passiveWisdom" title="Passive Wisdom" />
-      <Box gridArea="proficiencies" title="Proficiencies" />
+      <Proficiencies data={C.proficiencies} />
       <Box gridArea="combat" title="Combat" />
       <Actions attacks={C.attacks} spells={C.spells} />
       <Equipment data={C.gear} />
-      <Characteristics data={C.characteristics} />
-      <ListSection gridArea="features" title="Features & Traits" items={C.features} />
+      <Characteristics data={C.characteristics} features={C.features} />
     </PageLayout>
   );
 };

@@ -13,13 +13,15 @@ const useSpells = (spellsKnown, gameSpells, proficiencyBonus, chaMod) => {
           { amount: chaMod, desc: 'CHA Mod' },
         ];
         const castBonus = totalBonusAmount(castBonusDetail);
-        const dcDetail = [
-          { amount: 8, desc: 'Base' },
-          { amount: proficiencyBonus, desc: 'Proficiency Bonus' },
-          { amount: chaMod, desc: 'CHA Mod' },
-        ];
-        const dc = totalBonusAmount(dcDetail);
+        const dcDetail = gameSpell.save
+          ? [
+            { amount: 8, desc: 'Base' },
+            { amount: proficiencyBonus, desc: 'Proficiency Bonus' },
+            { amount: chaMod, desc: 'CHA Mod' },
+          ]
+          : [{ amount: 0, desc: 'No save' }];
         const save = gameSpell.save || '-';
+        const dc = save === '-' ? '-' : totalBonusAmount(dcDetail);
 
         const newSpell = Object.assign(gameSpell, {
           castBonus,

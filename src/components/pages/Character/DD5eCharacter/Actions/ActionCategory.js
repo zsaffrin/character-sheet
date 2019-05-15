@@ -7,20 +7,20 @@ import ActionSpell from './ActionSpell';
 
 const ActionCategory = ({ entries, title, type }) => {
   const SectionLayout = styled.div(({ theme }) => {
-    const { space } = theme;
+    const { font, space } = theme;
     return `
       align-items: center;  
       display: grid;
-      grid-gap: ${space.thin};
+      font-size: ${font.size.sm};
+      grid-gap: ${space.sm};
       grid-auto-rows: min-content;
-      grid-template-columns: repeat(${type === 'attack' ? 3 : 5}, auto);
+      grid-template-columns: repeat(${type === 'melee' ? 4 : 5}, auto);
     `;
   });
   const Title = styled.div(({ theme }) => {
     const { font } = theme;
     return `
       grid-column: 1 / -1;
-      font-size: ${font.size.sm};
       font-weight: ${font.weight.body.black};
       text-transform: uppercase;
     `;
@@ -29,7 +29,7 @@ const ActionCategory = ({ entries, title, type }) => {
   return (
     <SectionLayout>
       <Title>{title}</Title>
-      {type === 'attack' && <ActionAttack entries={entries} />}
+      {(type === 'melee' || type === 'ranged') && <ActionAttack entries={entries} type={type} />}
       {type === 'spell' && <ActionSpell entries={entries} />}
     </SectionLayout>
   );
