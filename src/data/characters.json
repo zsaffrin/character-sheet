@@ -135,10 +135,10 @@
       },
       "weapons": {
         "Simple Weapons": { "sourceType": "Class", "source": "Bard" },
-        "Hand Crossbow": { "sourceType": "Class", "source": "Bard" },
-        "Longsword": { "sourceType": "Class", "source": "Bard" },
-        "Rapier": { "sourceType": "Class", "source": "Bard" },
-        "Shortsword": { "sourceType": "Class", "source": "Bard" }
+        "Hand Crossbows": { "sourceType": "Class", "source": "Bard" },
+        "Longswords": { "sourceType": "Class", "source": "Bard" },
+        "Rapiers": { "sourceType": "Class", "source": "Bard" },
+        "Shortswords": { "sourceType": "Class", "source": "Bard" }
       }
     },
     "race": "halfelf",

@@ -136,6 +136,7 @@
       "damageDice": 1,
       "damageDie": 8,
       "damageType": "piercing",
+      "proficiencyCategory": "Rapiers",
       "properties": { "finesse": true },
       "type": "weapon",
       "weaponType": "melee",
