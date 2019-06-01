@@ -1,374 +1,167 @@
-[
-  {
-    "id": "1447676289",
+{
+  "robertgray": {
+    "id": "1120945642",
     "name": "Dr Robert Gray",
+    "gameKey": "pathfinder"
+  },
+  "izzymoon": {
+    "id": "917558184",
+    "name": "Izzy Moon",
+    "gameKey": "expanse",
+    "abilities": {
+      "acc": 3,
+      "com": 1,
+      "con": 0,
+      "dex": 3,
+      "fig": 1,
+      "int": 3,
+      "per": 1,
+      "str": 1,
+      "wil": 2
+    },
+    "appearance": "",
+    "background": "urb",
+    "drives": ["reb"],
+    "focuses": ["tech"],
+    "incomeScore": 2,
+    "inventory": [
+      {
+        "key": "",
+        "category": "",
+        "weaponType": "",
+        "name": "",
+        "desc": ""
+      }
+    ],
+    "origin": "belt",
+    "profession": "tech",
+    "relationships": [
+      {
+        "name": "The Crew of the Sommelier",
+        "desc": "Once per game session, you can get as many SP as your Relationship rating to perform any stunt that would be in-character when it comes to helping other members of the crew of the Sommelier. You choose this after you see if you succeed on a test.",
+        "rating": 1
+      }
+    ],
+    "socialClass": "low",
+    "talents": [
+      { "key": "hack", "level": "novice" },
+      { "key": "improv", "level": "novice" },
+      { "key": "mis", "level": "novice" }
+    ]
+  },
+  "ardenrook": {
+    "id": "2193808075",
+    "name": "Arden Rook",
+    "gameKey": "dd5e",
     "abilityScores": {
-      "cha": 8,
-      "con": 14,
-      "dex": 16,
-      "int": 13,
-      "str": 18,
-      "wis": 12
+      "str": 12,
+      "dex": 14,
+      "con": 13,
+      "int": 8,
+      "wis": 10,
+      "cha": 15
     },
-    "classes": [
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist",
-      "alchemist"
-    ],
-    "abilities": [
-      {
-        "name": "Alchemy",
-        "source": "Alchemist",
-        "bonuses": [
-          {
-            "key": "craftAlchemy",
-            "bonus": "classLevel",
-            "bonusType": "competence",
-            "condition": "mutagen"
-          }
-        ]
-      },
-      {
-        "name": "Mutagen",
-        "source": "Alchemist",
-        "bonuses": [
-          {
-            "key": "str",
-            "bonus": 2,
-            "bonusType": "naturalArmor",
-            "condition": "mutagen"
-          },
-          {
-            "key": "str",
-            "bonus": 4,
-            "bonusType": "alchemical",
-            "condition": "mutagen"
-          },
-          {
-            "key": "int",
-            "bonus": -2,
-            "bonusType": "naturalArmor",
-            "condition": "mutagen"
-          }
-        ]
-      },
-      {
-        "name": "Brew Potion",
-        "source": "Alchemist",
-        "effects": [
-          {
-            "type": "craft",
-            "key": "brewPotion",
-            "name": "Brew Potion",
-            "effectDesc": "Brew potions"
-          }
-        ]
-      },
-      {
-        "name": "Throw Anything",
-        "source": "Alchemist",
-        "bonuses": [
-          {
-            "key": "combat",
-            "type": "splashDamage",
-            "bonus": "intSkill",
-            "bonusType": "class"
-          }
-        ]
-      }
-    ],
-    "discoveries": [
-      {
-        "name": "Infusion",
-        "shortDesc": "Make an extract a potion"
-      },
-      {
-        "name": "Tumor Familiar",
-        "bonuses": [
-          {
-            "key": "init",
-            "bonus": 4,
-            "bonusType": "familiar"
-          }
-        ]
-      },
-      {
-        "name": "Feral Mutagen",
-        "shortDesc": "Gain 2 claws + bite w/ Mutagen",
-        "effects": [
-          {
-            "type": "combat",
-            "key": "feralMutagen",
-            "name": "Feral Mutagen",
-            "effectDesc": "Gain 2 claws + bite",
-            "condition": "mutagen"
-          }
-        ]
-      },
-      {
-        "name": "Bleeding Attack",
-        "shortDesc": "Sneak attack causes Bleed damage",
-        "effects": [
-          {
-            "type": "sneakAttack",
-            "key": "bleedAttack",
-            "name": "Bleeding Attack",
-            "effectDesc": "Sneak attack causes Bleed damage"
-          }
-        ]
-      },
-      {
-        "name": "Crippling Strike",
-        "shortDesc": "Sneak attack causes STR damage",
-        "effects": [
-          {
-            "type": "sneakAttack",
-            "key": "cripStrike",
-            "name": "Crippling Strike",
-            "effectDesc": "Sneak attack causes STR damage"
-          }
-        ]
-      }
-    ],
-    "feats": [
-      {
-        "name": "Improved Initiative",
-        "bonuses": [
-          {
-            "key": "init",
-            "bonus": 4,
-            "bonusType": "feat"
-          }
-        ]
-      }
-    ],
-    "conditions": {
-      "mutagen": false,
-      "beastForm": true,
-      "flatFooted": false
-    },
-    "alignment": {
-      "gve": "neutral",
-      "lvc": "chaotic"
-    },
-    "archetype": "Vivisectionist",
-    "bab": [9, 4],
-    "baseSaves": {
-      "fort": 8,
-      "reflex": 8,
-      "will": 4
-    },
-    "baseSize": 4,
-    "maxHp": 72,
-    "race": {
-      "name": "Skinwalker (Ragebred)",
-      "bonuses": [
+    "alignment": "Neutral Good",
+    "background": "entertainer",
+    "characteristics": {
+      "bonds": [
         {
-          "key": "wis",
-          "bonus": 2,
-          "bonusType": "racial",
-          "condition": "beastForm"
-        },
+          "desc": "Carries a custom-designed Viol. The body and neck are adorned with a myriad of interwoven symbols and carvings, signatures of places in which he has performed and people he has met. He values the history represented by this instrument and his primary performance style depends on it, as such he is protective of it."
+        }
+      ],
+      "flaws": [
         {
-          "key": "int",
-          "bonus": -2,
-          "bonusType": "racial",
-          "condition": "beastForm"
-        },
+          "desc": "While his demeanor and approach are typically constructive and diplomatic, his subject matter can be sometimes controvertial or perceived as confrontational, which sometimes causes friction with authority figures or those in his spotlight."
+        }
+      ],
+      "ideals": [
         {
-          "key": "str",
-          "bonus": 2,
-          "bonusType": "racial",
-          "condition": "beastForm"
+          "name": "Herald",
+          "desc": "Be a voice for the voiceless and the unheard"
+        }
+      ],
+      "personalityTraits": [
+        {
+          "desc": "Performs a notable song style, the dual tones of his custom Viol and register of his voice creating a recognizable 1-man 3-part harmony. His skill in this style is well-known and liked, and he uses this notoriety to bring attention to disfavor or injustices he perceives."
         }
       ]
     },
-    "traits": [
+    "classLevels": {
+      "bard": 1
+    },
+    "gear": [
+      { "item": "Backpack", "qty": 1 },
+      { "item": "Bedroll", "qty": 1 },
+      { "item": "Candle", "qty": 5 },
+      { "item": "Costume", "qty": 3 },
+      { "item": "Disguise Kit", "qty": 1 },
+      { "item": "Dagger", "qty": 1 },
+      { "item": "Viol", "qty": 1 },
+      { "item": "Leather Armor", "qty": 1 },
+      { "item": "Rapier", "qty": 1 },
+      { "item": "Rations", "qty": 5 },
+      { "item": "Waterskin", "qty": 1 },
+      { "customItem": true, "name": "[trinket]" },
+      { "gpItem": true, "name": "Pouch", "cost": 15 }
+    ],
+    "maxHp": [
       {
-        "name": "Pragmatic Activator",
-        "shortDesc": "Use INT mod for UMD checks"
-      },
-      {
-        "name": "Accelerated Drinker",
-        "shortDesc": "Drink potion in-hand as a move action"
+        "amount": 10,
+        "desc": "Bard Starting HP: 8 + CON (+2)"
       }
     ],
-    "xp": [
+    "proficiencies": {
+      "armor": {
+        "Light Armor": { "sourceType": "Class", "source": "Bard" }
+      },
+      "skills": {
+        "acro": { "sourceType": "Background", "source": "Entertainer" },
+        "ath": { "sourceType": "Race", "source": "Half-Elf" },
+        "ins": { "sourceType": "Class", "source": "Bard" },
+        "med": { "sourceType": "Class", "source": "Bard" },
+        "perc": { "sourceType": "Race", "source": "Half-Elf" },
+        "perf": { "sourceType": "Background", "source": "Entertainer" },
+        "pers": { "sourceType": "Class", "source": "Bard" }
+      },
+      "languages": {
+        "Giant": { "sourceType": "Race", "source": "Half-Elf" }
+      },
+      "tools": {
+        "Viol": { "sourceType": "Class", "source": "Bard" },
+        "Lute": { "sourceType": "Class", "source": "Bard" },
+        "Instrument3": { "sourceType": "Class", "source": "Bard" },
+        "Instrument4": { "sourceType": "Background", "source": "Entertainer" },
+        "Disguise Kit": { "sourceType": "Background", "source": "Entertainer" }
+      },
+      "weapons": {
+        "Simple Weapons": { "sourceType": "Class", "source": "Bard" },
+        "Hand Crossbows": { "sourceType": "Class", "source": "Bard" },
+        "Longswords": { "sourceType": "Class", "source": "Bard" },
+        "Rapiers": { "sourceType": "Class", "source": "Bard" },
+        "Shortswords": { "sourceType": "Class", "source": "Bard" }
+      }
+    },
+    "race": "halfelf",
+    "selectedBonuses": [
       {
-        "dateAdded": "2019-04-11T18:44:53.280Z",
-        "value": 145000,
-        "comment": "Catch-up"
+        "type": "ability",
+        "affects": "dex",
+        "amount": 1,
+        "desc": "Racial Bonus Choice (Half-Elf)"
+      },
+      {
+        "type": "ability",
+        "affects": "con",
+        "amount": 1,
+        "desc": "Racial Bonus Choice (Half-Elf)"
       }
     ],
-    "gp": [
-      {
-        "dateAdded": "2019-04-11T18:44:53.280Z",
-        "value": 82000,
-        "comment": "Catch-up"
-      }
+    "spellsKnown": [
+      "Vicious Mockery",
+      "Prestidigitation",
+      "Cure Wounds",
+      "Sleep"
     ],
-    "items": [
-      {
-        "name": "+2 Mithral Shirt",
-        "type": "armor",
-        "armorType": "light",
-        "bonuses": [
-          {
-            "key": "ac",
-            "bonus": 6,
-            "bonusType": "armor"
-          }
-        ],
-        "maxDex": 6,
-        "checkPenalty": 0,
-        "arcaneSpellFailChance": 10,
-        "weight": 10,
-        "price": 1100,
-        "equipped": true
-      },
-      {
-        "name": "+4 Belt of Incredible Dexterity",
-        "type": "wondrous",
-        "weight": 1,
-        "price": 16000,
-        "slot": "belt",
-        "bonuses": [
-          {
-            "key": "dex",
-            "bonus": 4,
-            "bonusType": "enhancement"
-          }
-        ],
-        "equipped": true
-      },
-      {
-        "name": "+4 Headband of Vast Intelligence",
-        "type": "wondrous",
-        "weight": 1,
-        "price": 16000,
-        "slot": "headband",
-        "bonuses": [
-          {
-            "key": "int",
-            "bonus": 4,
-            "bonusType": "enhancement"
-          }
-        ],
-        "equipped": true
-      },
-      {
-        "name": "Sipping Jacket",
-        "type": "wondrous",
-        "weight": 5,
-        "price": 5000,
-        "slot": "chest",
-        "equipped": true
-      },
-      {
-        "name": "+2 Amulet of Mighty Fists",
-        "type": "wondrous",
-        "weight": 1,
-        "price": 16000,
-        "slot": "neck",
-        "bonuses": [
-          {
-            "key": "unarmedAttack",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          },
-          {
-            "key": "naturalWeaponAttack",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          },
-          {
-            "key": "unarmedDamage",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          },
-          {
-            "key": "naturalWeaponDamage",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          }
-        ],
-        "equipped": true
-      },
-      {
-        "name": "+2 Cape of Free Will",
-        "type": "wondrous",
-        "weight": 1,
-        "price": 6000,
-        "slot": "shoulders",
-        "bonuses": [
-          {
-            "key": "fort",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          },
-          {
-            "key": "reflex",
-            "bonus": 2,
-            "bonusType": "enhancement"
-          },
-          {
-            "key": "will",
-            "bonus": 3,
-            "bonusType": "enhancement"
-          }
-        ],
-        "equipped": true
-      },
-      {
-        "name": "Wrist Sheath, spring loaded",
-        "type": "weaponAcc",
-        "weight": 1,
-        "price": 5,
-        "slot": "wrist",
-        "equipped": true
-      },
-      {
-        "name": "+2 Ring of Protection",
-        "type": "wondrous",
-        "weight": 0,
-        "price": 8000,
-        "slot": "ring",
-        "bonuses": [
-          {
-            "key": "ac",
-            "bonus": 2,
-            "bonusType": "deflect"
-          }
-        ],
-        "equipped": true
-      },
-      {
-        "name": "Ring of Sustenance",
-        "type": "wondrous",
-        "weight": 0,
-        "price": 2500,
-        "slot": "ring",
-        "equipped": true
-      }
-    ],
-    "skillRanks": {
-      "cAlch": 11,
-      "disdev": 4,
-      "fly": 4,
-      "kArc": 6,
-      "kNat": 5,
-      "perc": 11,
-      "spell": 11,
-      "umd": 11
-    }
+    "xp": []
   }
-]
+}
